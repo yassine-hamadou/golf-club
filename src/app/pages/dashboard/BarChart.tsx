@@ -7,16 +7,18 @@ type Props = {
   className: string
   chartColor: string
   chartHeight: string
+  barcolor: string
 }
 
-const BarChart: React.FC<Props> = ({className, chartColor, chartHeight}) => {
+const BarChart: React.FC<Props> = ({className, chartColor, chartHeight, barcolor}) => {
   const chartRef = useRef<HTMLDivElement | null>(null)
   const {mode} = useThemeMode()
   const refreshChart = () => {
     if (!chartRef.current) {
       return
     }
-    const chart = new ApexCharts(chartRef.current, chartOptions(chartColor, chartHeight))
+    let color = barcolor;
+    const chart = new ApexCharts(chartRef.current, chartOptions(chartColor, chartHeight, color))
     if (chart) {
       chart.render()
     }
@@ -39,19 +41,7 @@ const BarChart: React.FC<Props> = ({className, chartColor, chartHeight}) => {
     <div className={`card ${className}`}>
       {/* begin::Body */}
       <div className='card-body p-0 d-flex justify-content-between flex-column overflow-hidden'>
-        {/* begin::Hidden */}
-        <div className='d-flex flex-stack flex-wrap flex-grow-1 px-9 pt-9 pb-3'>
-          <div className='me-2'>
-            <span className='fw-bold text-gray-800 d-block fs-3'>Monthly Downtime</span>
 
-            <span className='text-gray-400 fw-semibold'>Aug 26 2022 - Sep 26 2022</span>
-          </div>
-
-          <div className={`fw-bold fs-3 text-${chartColor}`}>80 Hours</div>
-        </div>
-        {/* end::Hidden */}
-
-        {/* begin::Chart */}
         <div ref={chartRef} className='mixed-widget-10-chart'></div>
         {/* end::Chart */}
       </div>
@@ -59,11 +49,11 @@ const BarChart: React.FC<Props> = ({className, chartColor, chartHeight}) => {
   )
 }
 
-const chartOptions = (chartColor: string, chartHeight: string): ApexOptions => {
+const chartOptions = (chartColor: string, chartHeight: string, color: string): ApexOptions => {
   const labelColor = getCSSVariableValue('--kt-gray-500')
   const borderColor = getCSSVariableValue('--kt-gray-200')
   const secondaryColor = getCSSVariableValue('--kt-gray-300')
-  const baseColor = getCSSVariableValue('--kt-' + chartColor)
+  const baseColor = color
 
   return {
     series: [

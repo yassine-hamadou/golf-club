@@ -15,23 +15,25 @@ const DashboardPage: FC = () => (
           className='card-xxl-stretch mb-5 mb-xl-8'
           chartColor='primary'
           chartHeight='200px'
+          barcolor='#EAE509FF'
         />
       </div>
       <div className='col-xl-6'>
-        <MixedWidget11
+        <BarChart
           className='card-xxl-stretch mb-5 mb-xl-8'
           chartColor='danger'
           chartHeight='200px'
+            barcolor='#278119FF'
         />
       </div>
     </div>
     {/* end::Row */}
-    <div className='row gy-5 g-xl-8'>
-      <div className='col-xl-12'>
-        {/*card-xxl-stretch mb-5 mb-xl-8*/}
-        <DashboardTable />
-      </div>
-    </div>
+    {/*<div className='row gy-5 g-xl-8'>*/}
+    {/*  <div className='col-xl-12'>*/}
+    {/*    /!*card-xxl-stretch mb-5 mb-xl-8*!/*/}
+    {/*    <DashboardTable />*/}
+    {/*  </div>*/}
+    {/*</div>*/}
   </>
 )
 

@@ -26,14 +26,14 @@ export function AsideMenuMain() {
       {/*  </Link>*/}
       {/*</div>*/}
       <AsideMenuItemWithSub to='' title='MAIN NAVIGATION' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen022.svg'>
-        <AsideMenuItem to='' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen055.svg' title='Register' />
-        <AsideMenuItem to='' fontIcon='bi-archive' icon='/media/icons/duotune/finance/fin010.svg' title='Deposit Money' />
-        <AsideMenuItem to='' fontIcon='bi-archive' icon='/media/icons/duotune/ecommerce/ecm001.svg' title='Shop' />
-        <AsideMenuItem to='' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen014.svg' title='Calendar' />
-        <AsideMenuItem to='' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen022.svg' title='Tee Times' />
-        <AsideMenuItem to='' fontIcon='bi-archive' icon='/media/icons/duotune/finance/fin007.svg' title='POS' />
-        <AsideMenuItem to='' fontIcon='bi-archive' icon='/media/icons/duotune/technology/teh010.svg' title='Partners' />
-        <AsideMenuItem to='' fontIcon='bi-archive' icon='/media/icons/duotune/finance/fin002.svg' title='Card Management' />
+        <AsideMenuItem to='register' icon='/media/icons/duotune/general/gen055.svg' title='Register' />
+        <AsideMenuItem to='deposit' fontIcon='bi-archive' icon='/media/icons/duotune/finance/fin010.svg' title='Deposit Money' />
+        <AsideMenuItem to='shop' fontIcon='bi-archive' icon='/media/icons/duotune/ecommerce/ecm001.svg' title='Shop' />
+        <AsideMenuItem to='calendar' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen014.svg' title='Calendar' />
+        <AsideMenuItem to='tee' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen022.svg' title='Tee Times' />
+        <AsideMenuItem to='pos' fontIcon='bi-archive' icon='/media/icons/duotune/finance/fin007.svg' title='POS' />
+        <AsideMenuItem to='partners' fontIcon='bi-archive' icon='/media/icons/duotune/technology/teh010.svg' title='Partners' />
+        <AsideMenuItem to='card-management' fontIcon='bi-archive' icon='/media/icons/duotune/finance/fin002.svg' title='Card Management' />
 
       </AsideMenuItemWithSub>
       <div className='menu-item'>
@@ -47,19 +47,7 @@ export function AsideMenuMain() {
         fontIcon='bi-archive'
         icon='/media/icons/duotune/coding/cod009.svg'
       >
-        <AsideMenuItem to='/setup/fleet' title='Fleet' hasBullet={true} />
-        <AsideMenuItem to='/setup/down-type' title='Down Type' hasBullet={true} />
-        <AsideMenuItem to='/setup/custodian' title='Custodian' hasBullet={true} />
         <AsideMenuItem to='/setup/location' title='Location' hasBullet={true} />
-        <AsideMenuItem to='/setup/work-type' title='Work Type' hasBullet={true} />
-
-        <AsideMenuItemWithSub to='/setup/lube' title='Lube' hasBullet={true}>
-          <AsideMenuItem to='/setup/compartment' title='Compartment' hasBullet={true} />
-          <AsideMenuItem to='/setup/lube-brand' title='Brand' hasBullet={true} />
-          <AsideMenuItem to='/setup/lube-config' title='Lube Config' hasBullet={true} />
-          <AsideMenuItem to='/setup/refill' title='Refill Type' hasBullet={true} />
-        </AsideMenuItemWithSub>
-
       </AsideMenuItemWithSub>
 
       {/*<div className='menu-item'>*/}

@@ -1,31 +1,24 @@
 import React from 'react'
-import {Navigate, Outlet, Route, Routes} from 'react-router-dom'
+import {Navigate, Route, Routes} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_metronic/layout/core'
-import {EquipmentDetail} from './components/entries/equipment/EquipmentSchedule'
+import Add from './components/register/add/Registration';
+import {Register} from "./components/register/Register";
 const accountBreadCrumbs: Array<PageLink> = []
 
 const ProductionPage: React.FC = () => {
   return (
     <Routes>
       <Route
-        path='/entries/*'
+        path='/register/*'
         element={
           <>
-            <Outlet />
+            <PageTitle breadcrumbs={accountBreadCrumbs}>Members</PageTitle>
+            <Register />
           </>
         }
-      >
-        <Route
-          path='schedule'
-          element={
-            <>
-              <PageTitle breadcrumbs={accountBreadCrumbs}>Equipment Schedule</PageTitle>
-              {/*<Overview />*/}
-              <EquipmentDetail />
-            </>
-          }
-        />
-      </Route>
+      />
+      <Route path='*' element={<Navigate to='/error/404' />} />
+
     </Routes>
   )
 }

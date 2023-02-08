@@ -31,7 +31,7 @@ $header-config: (
         tablet-and-mobile: 55px,
       ),
       bg-color: $white,
-      bg-color-dark: #278119,
+      bg-color-dark: #1e1e2d,
     ),
   // Fixed Mode
   fixed:
@@ -41,7 +41,7 @@ $header-config: (
         tablet-and-mobile: 55px,
       ),
       z-index: 100,
-      bg-color: $white,
+      bg-color:   $white,
       bg-color-dark: #1e1e2d,
       box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05),
       box-shadow-dark: none,
@@ -74,7 +74,7 @@ $aside-config: (
   menu-indention: 0.75rem,
   bg-color: $white,
   bg-color-dark: #2b7a0b,
-  logo-bg-color: darken(#2b7a0b, 2%),
+  //logo-bg-color: darken(#2b7a0b, 2%),
   scrollbar-color: #278119,
   scrollbar-color-dark: $gray-200-dark,
   scrollbar-hover-color: lighten(#278119, 3%),

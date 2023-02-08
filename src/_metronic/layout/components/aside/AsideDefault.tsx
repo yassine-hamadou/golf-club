@@ -23,7 +23,6 @@ const AsideDefault: FC = () => {
     <div
       id='kt_aside'
       className={clsx('aside', classes.aside.join(' '))}
-      // style={{backgroundColor: }}
       data-kt-drawer='true'
       data-kt-drawer-name='aside'
       data-kt-drawer-activate='{default: true, lg: false}'
@@ -34,13 +33,20 @@ const AsideDefault: FC = () => {
       ref={asideRef}
     >
       {/* begin::Brand */}
-      <div className='aside-logo flex-column-auto' id='kt_aside_logo'>
+      <div className='aside-logo flex-column-auto' id='kt_aside_logo'
+            style={{paddingTop: '10px', paddingLeft: '50px'}}
+      >
         {/* begin::Logo */}
         <Link to='/dashboard'>
           <img
             alt='Logo'
-            className='h-55px logo'
+            style={{
+              height: '150px',
+              marginTop: '40px'
+          }}
+            className='logo'
             src={toAbsoluteUrl('/media/logos/logo.png')}
+            height={60}
        />
         </Link>
         {/* end::Logo */}
@@ -67,7 +73,10 @@ const AsideDefault: FC = () => {
       {/* end::Brand */}
 
       {/* begin::Aside menu */}
-      <div className='aside-menu flex-column-fluid'>
+      <div
+          className='aside-menu flex-column-fluid'
+          style={{marginTop: '45px'}}
+      >
         <AsideMenu asideMenuCSSClasses={classes.asideMenu} />
       </div>
       {/*</div>*/}

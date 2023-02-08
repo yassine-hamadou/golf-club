@@ -51,9 +51,12 @@ const DefaultTitle: FC = () => {
                       {item.title}
                     </Link>
                   )}
-                  {/*: (*/}
-                  {/*  <span className='bullet bg-gray-200 w-5px h-2px'></span>*/}
-                  {/*)}*/}
+{item.isSeparator && item.isActive ? (
+                    <span className=''></span>
+  )
+                  : (
+                    <span className=''>/</span>
+                  )}
                 </li>
               ))}
               {/*<li className='breadcrumb-item text-dark'>{pageTitle}</li>*/}
