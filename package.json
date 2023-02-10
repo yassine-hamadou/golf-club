@@ -1,8 +1,8 @@
 {
-  "name": "enp-mine-care",
+  "name": "egolf",
   "version": "8.1.0",
   "private": true,
-  "homepage": "/mine-care/",
+  "homepage": "/egolf2/",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.10.5",

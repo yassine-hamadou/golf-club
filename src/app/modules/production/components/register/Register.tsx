@@ -76,37 +76,6 @@ const Register = () => {
         },
     ]
 
-    // const loadData = async () => {
-    //     setLoading(true)
-    //     try {
-    //         const response = await axios.get(`${ENP_URL}/VmmodlsApi`)
-    //         setGridData(response.data)
-    //         setLoading(false)
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     loadData()
-    // }, [])
-
-    // const {data: listOfequipment} = useQuery('listOfEquipment', () =>
-    //     axios.get(`${ENP_URL}/VmequpsApi`)
-    // )
-
-
-    // const globalSearch = () => {
-    //     // @ts-ignore
-    //     filteredData = dataWithVehicleNum.filter((value) => {
-    //         return (
-    //             value.txmodel.toLowerCase().includes(searchText.toLowerCase()) ||
-    //             value.txmanf.toLowerCase().includes(searchText.toLowerCase())
-    //         )
-    //     })
-    //     setGridData(filteredData)
-    // }
-
     return (
       <Routes>
           {/*index*/}
@@ -147,9 +116,9 @@ const Register = () => {
                         </KTCardBody>
                     </KTCard>
                 </>
-
             }
           />
+          {/*add*/}
           <Route
             path='add'
             element={
