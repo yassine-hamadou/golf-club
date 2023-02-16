@@ -4,6 +4,10 @@ import {PageLink, PageTitle} from '../../../_metronic/layout/core'
 import {Register} from "./components/register/Register";
 import {GamePlanning} from "./components/gamePlanning/gameSchedule";
 import { TeeSheet } from './components/teeSheet/teeSheet';
+import { Gameplay } from "./components/teeSheet/Gameplay";
+import { Setup } from './components/teeSheet/setup/Setup';
+import { Reports } from "./components/reports/MembersReport";
+import { Shop } from './components/shop/Shop';
 const accountBreadCrumbs: Array<PageLink> = []
 
 const ProductionPage: React.FC = () => {
@@ -37,6 +41,39 @@ const ProductionPage: React.FC = () => {
           </>
         }
       />
+      <Route
+        path='/gameplay/*'
+        element={
+          <>
+            <PageTitle breadcrumbs={accountBreadCrumbs}>Gameplay</PageTitle>
+            <Gameplay />
+          </>
+        }
+      />
+      <Route
+        path='/shop/*'
+        element={
+          <>
+            <PageTitle breadcrumbs={accountBreadCrumbs}>Shop</PageTitle>
+            <Shop />
+          </>
+        }
+      />
+      <Route
+        path='/setup/*'
+        element={
+          <>
+            <PageTitle breadcrumbs={accountBreadCrumbs}>Setup</PageTitle>
+            <Setup />
+          </>
+        }
+      />
+      <Route path='/reports/*' element={
+        <>
+          <PageTitle breadcrumbs={accountBreadCrumbs}>Reports</PageTitle>
+          <Reports/>
+        </>
+      } />
       <Route path='*' element={<Navigate to='/error/404' />} />
 
     </Routes>

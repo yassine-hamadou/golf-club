@@ -1,6 +1,6 @@
 import { KTCard, KTCardBody } from '../../../../../_metronic/helpers'
-import {Calendar} from './calendar/Calendar'
 import { PageLink } from "../../../../../_metronic/layout/core";
+import { Tee } from "./calendar/Calendar";
 const accountBreadCrumbs: Array<PageLink> = [
   {
     title: 'Register',
@@ -16,11 +16,7 @@ const TeeSheet = () => {
 
   return (
     <>
-      <KTCard>
-        <KTCardBody className='py-5 px-2'>
-          <Calendar />
-        </KTCardBody>
-      </KTCard>
+          <Tee />
     </>
   )
 }

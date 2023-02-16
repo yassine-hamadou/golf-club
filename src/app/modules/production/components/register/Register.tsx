@@ -131,7 +131,6 @@ const Register = () => {
                                 path: '/register/add',
                                 isSeparator: false,
                                 isActive: true,
-
                             }
                         ]
                     }>Add new member</PageTitle>

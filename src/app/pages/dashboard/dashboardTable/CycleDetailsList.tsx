@@ -2,7 +2,7 @@ import {Button, Input, Space, Table} from 'antd'
 import {useEffect, useState} from 'react'
 import axios from 'axios'
 import {KTCard, KTCardBody, KTSVG} from '../../../../_metronic/helpers'
-import {ENP_URL} from '../../../urls'
+import {BASE_URL} from '../../../urls'
 import {useQuery} from 'react-query'
 
 const DashboardTable = () => {
@@ -65,7 +65,7 @@ const DashboardTable = () => {
   const loadData = async () => {
     setLoading(true)
     try {
-      const response = await axios.get(`${ENP_URL}/VmmodlsApi`)
+      const response = await axios.get(`${BASE_URL}/VmmodlsApi`)
       setGridData(response.data)
       setLoading(false)
     } catch (error) {
@@ -78,7 +78,7 @@ const DashboardTable = () => {
   }, [])
 
   const {data: listOfequipment} = useQuery('listOfEquipment', () =>
-    axios.get(`${ENP_URL}/VmequpsApi`)
+    axios.get(`${BASE_URL}/VmequpsApi`)
   )
   const countNumberOfEquipment = (model: any) => {
     //count number of model
