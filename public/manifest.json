@@ -1,7 +1,7 @@
 {
   "short_name": "Metronic React App",
   "name": "Metronic React App demo1",
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "icons": [
       {
