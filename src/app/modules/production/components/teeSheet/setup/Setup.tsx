@@ -1,7 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import { PageTitle } from "../../../../../../_metronic/layout/core";
 import { CourseSetup } from "./CourseSetup";
+import { Fees } from "./Fees";
   let accountBreadCrumbs: any = [];
+
+
 
 export const Setup: any = () => {
 
@@ -16,6 +19,15 @@ export const Setup: any = () => {
             </>
           }
         />
+      <Route
+        path="fees"
+        element={
+          <>
+            <PageTitle breadcrumbs={accountBreadCrumbs}>Fees Setup</PageTitle>
+            <Fees />
+          </>
+        }
+      />
     </Routes>
   );
 }

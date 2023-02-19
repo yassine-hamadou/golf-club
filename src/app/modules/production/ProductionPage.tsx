@@ -3,11 +3,11 @@ import {Navigate, Route, Routes} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_metronic/layout/core'
 import {Register} from "./components/register/Register";
 import {GamePlanning} from "./components/gamePlanning/gameSchedule";
-import { TeeSheet } from './components/teeSheet/teeSheet';
 import { Gameplay } from "./components/teeSheet/Gameplay";
 import { Setup } from './components/teeSheet/setup/Setup';
 import { Reports } from "./components/reports/MembersReport";
 import { Shop } from './components/shop/Shop';
+import { TeeSheet } from './components/teeSheet/teeSheet';
 const accountBreadCrumbs: Array<PageLink> = []
 
 const ProductionPage: React.FC = () => {

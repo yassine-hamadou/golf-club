@@ -1,0 +1,52 @@
+.card {
+    /*margin: 30px auto;*/
+    /*width: 300px;*/
+    /*height: 300px;*/
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.22), -2px -2px 10px 3px rgba(0,0,0,0.22);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/*.card .card_image {*/
+/*    width: inherit;*/
+/*    height: inherit;*/
+/*    border-radius: 40px;*/
+/*}*/
+
+/*.card .card_image img {*/
+/*    width: inherit;*/
+/*    height: inherit;*/
+/*    border-radius: 40px;*/
+/*    object-fit: cover;*/
+/*}*/
+
+/*.card .card_title {*/
+/*    text-align: center;*/
+/*    border-radius: 0px 0px 40px 40px;*/
+/*    font-family: sans-serif;*/
+/*    font-weight: bold;*/
+/*    font-size: 30px;*/
+/*    margin-top: -80px;*/
+/*    height: 40px;*/
+/*}*/
+
+.card:hover {
+    transform: scale(0.95, 0.95);
+    box-shadow: 2px 2px 10px 2px rgb(43, 122, 11),
+    -2px -2px 10px 2px rgb(43, 122, 11);
+}
+
+.sheet {
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px 2px rgb(43, 122, 11),
+    -2px -2px 10px 2px rgb(43, 122, 11);
+    transform: scale(0.95, 0.95);
+}
+
+/*.sheet:hover {*/
+/*    transform: scale(0.95, 0.95);*/
+/*    box-shadow: 2px 2px 10px 2px rgb(43, 122, 11),*/
+/*    -2px -2px 10px 2px rgb(43, 122, 11);*/
+/*}*/
+
