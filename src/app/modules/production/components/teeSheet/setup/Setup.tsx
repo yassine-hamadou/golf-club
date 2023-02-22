@@ -28,6 +28,15 @@ export const Setup: any = () => {
           </>
         }
       />
+      <Route
+        path="caddies"
+        element={
+          <>
+            <PageTitle breadcrumbs={accountBreadCrumbs}>Caddies Setup</PageTitle>
+            {/*<Caddies />*/}
+          </>
+        }
+      />
     </Routes>
   );
 }

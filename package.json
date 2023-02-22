@@ -2,7 +2,7 @@
   "name": "egolfnew",
   "version": "8.1.0",
   "private": true,
-  "homepage": "https://egolffront.onrender.com",
+  "homepage": "/egolfnew/",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.10.5",

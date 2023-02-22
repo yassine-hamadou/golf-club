@@ -40,6 +40,7 @@ export function AsideMenuMain() {
       >
         <AsideMenuItem to='/setup/course-setup' title='Course Setup' hasBullet={true} />
         <AsideMenuItem to='/setup/fees' fontIcon='bi-archive' icon='/media/icons/duotune/finance/fin007.svg' title='Fees Setup' />
+        <AsideMenuItem to='/setup/caddies' title='Caddies' hasBullet={true} />
 
       </AsideMenuItemWithSub>
 

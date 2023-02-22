@@ -2,8 +2,6 @@ import { KTCard, KTCardBody, KTSVG } from "../../../../../../_metronic/helpers";
 import { Button, Input, Space, Table } from "antd";
 import { Link, Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import { PageTitle } from "../../../../../../_metronic/layout/core";
-import Add from "../../register/add/Registration";
 
 
 const columns: any = [
