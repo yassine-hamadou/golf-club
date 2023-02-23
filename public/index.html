@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scale=no" />
+  <style>
+      /* Disable all zooming on the web page */
+      html, body {
+          touch-action: pan-x pan-y;
+      }
+  </style>
   <meta name="theme-color" content="#000000" />
-  <meta name="description" content="AGC" />
-  <link rel="manifest" href='./manifest.json'>
+  <link rel="manifest" href='%PUBLIC_URL%/manifest.json'>
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/media/logos/logo_192.png" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
   <title>AGC</title>
   <link rel="shortcut icon" href="%PUBLIC_URL%/media/logos/icon.png" />
@@ -16,6 +24,21 @@
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <!--begin::Theme mode activity on page load-->
 <script>
+  // if ("serviceWorker" in navigator) {
+  //   // self.addEventListener("load", function() {
+  //     navigator.serviceWorker.register("../src/serviceWorker.js").then(serviceWorker => {
+  //       console.log("Service Worker registered: ", serviceWorker);
+  //     })
+  //       .catch(error => {
+  //         console.error("Error registering the Service Worker: ", error);
+  //       });
+  //   // });
+  // }
+  // Disable zooming on the entire web page
+  document.addEventListener('touchmove', function(event) {
+    if (event.scale !== 1) { event.preventDefault(); }
+  }, { passive: false });
+
   if (document.documentElement) {
     var defaultThemeMode = "system";
 
@@ -32,19 +55,6 @@
 
     document.documentElement.setAttribute("data-theme", themeMode);
   }
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function() {
-      navigator.serviceWorker.register("./serviceWorker.js").then(function(registration) {
-        // Registration was successful
-        console.log("ServiceWorker registration successful with scope: ", registration.scope);
-      }, function(err) {
-        // registration failed :(
-        console.log("ServiceWorker registration failed: ", err);
-      });
-    });
-  }
-
-
 </script>
 <!--end::Theme mode activity on page load-->
 
