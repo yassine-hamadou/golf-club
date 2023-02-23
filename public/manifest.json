@@ -4,28 +4,43 @@
   "theme_color": "#2b7a0b",
   "background_color": "#2b7a0b",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
+  "start_url": ".",
+  "prefer_related_applications": false,
   "icons": [
     {
-      "src": "public/media/logos/logo_192.png",
+      "src": "media/logos/logo_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "media/logos/logo_192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "public/media/logos/logo_256.png",
+      "src": "media/logos/logo_256.png",
       "sizes": "256x256",
       "type": "image/png"
     },
     {
-      "src": "public/media/logos/logo_384.png",
+      "src": "media/logos/logo_384.png",
       "sizes": "384x384",
       "type": "image/png"
     },
     {
-      "src": "public/media/logos/logo_512.png",
+      "src": "media/logos/logo_512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+    "splash_pages": null,
+    "share_target": null,
+    "dir": "ltr",
+    "lang": "en-US",
+    "orientation": "any",
+    "description": "Achimota Golf Club is a private golf club in Ghana.",
+  "zoom": 1
+
+
 }

@@ -1,5 +1,6 @@
 import {createRoot} from 'react-dom/client'
 import {registerLicense} from '@syncfusion/ej2-base'
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 // Axios
 import axios from 'axios'
@@ -42,3 +43,8 @@ if (container) {
     </MetronicI18nProvider>
   )
 }
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorkerRegistration.register();
