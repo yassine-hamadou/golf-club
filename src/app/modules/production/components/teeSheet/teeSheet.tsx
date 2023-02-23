@@ -1,4 +1,4 @@
-  import { Button, Card, Col, Form, Input, message, Modal, Row, Select, Space, Tooltip } from "antd";
+import { Button, Card, Col, Form, Input, message, Modal, Row, Select, Space, Tooltip } from "antd";
 import axios from 'axios';
 import { add } from "date-fns";
 import styles from "./Calendar.module.css";
@@ -7,7 +7,8 @@ import { KTCard, KTCardBody } from "../../../../../_metronic/helpers";
 import { BASE_URL } from "../../../../urls";
 import { Outlet, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "antd/es/form/Form";
-  import { InfoCircleOutlined, UserOutlined } from "@ant-design/icons";
+import { InfoCircleOutlined, UserOutlined } from "@ant-design/icons";
+import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 
 const teeSlot = [
@@ -26,7 +27,7 @@ const teeSlot = [
 
 
 
-  const TeeSheet = () => {
+const TeeSheet = () => {
 
   useEffect(() => {
     axios.get(`${BASE_URL}/members`).then((res) => {
@@ -39,7 +40,7 @@ const teeSlot = [
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [members, setMembers] = useState<any>()
-    console.log('membersAPI', members);
+  console.log('membersAPI', members);
   const [modalContent, setModalContent] = useState({
     date: "",
     rowIndex: 1,
@@ -74,78 +75,57 @@ const teeSlot = [
   //   console.log('members', response.data);
   // }
 
-  // const members = [
-  //   {
-  //     "player": 1,
-  //     "name": "John Doe"
-  //   },
-  //   {
-  //     "player": 2,
-  //     "name": "Jane Doe"
-  //   },
-  //   {
-  //     "player": 3,
-  //     "name": "John Smith"
-  //   },
-  //   {
-  //     "player": 4,
-  //     "name": "Jane Smith"
-  //   }
-  // ]
-
   const memberships = [
     { label: 'Member', value: 'member' },
     { label: 'Non-Member', value: 'non-member' },
   ];
   // type SightsKeys = keyof typeof sights;
 
-    const onFinish = (values: any) => {
-      console.log('Received values of form onfinish:', values);
-      console.log('Received values of form onfinish:', getDatestring().toISOString());
-      const data = {
-        date: getDatestring().toISOString(),
-        host: {
-          membership: values.hostMembership,
-          player: values.hostMembership === 'member' ? values.host : values.enteredHost,
-        },
-        player2: {
-          membership: values.player2Membership,
-          player: values.player2Membership === 'member' ? values.player2 : values.enteredPlayer2,
-        },
-        player3: {
-          membership: values.player3Membership,
-          player: values.player3Membership === 'member' ? values.player3 : values.enteredPlayer3,
-        },
-        player4: {
-          membership: values.player4Membership,
-          player: values.player4Membership === 'member' ? values.player4 : values.enteredPlayer4,
-        }
+  const onFinish = (values: any) => {
+    console.log('Received values of form onfinish:', values);
+    console.log('Received values of form onfinish:', getDatestring().toISOString());
+    const data = {
+      date: getDatestring().toISOString(),
+      host: {
+        membership: values.hostMembership,
+        player: values.hostMembership === 'member' ? values.host : values.enteredHost,
+      },
+      player2: {
+        membership: values.player2Membership,
+        player: values.player2Membership === 'member' ? values.player2 : values.enteredPlayer2,
+      },
+      player3: {
+        membership: values.player3Membership,
+        player: values.player3Membership === 'member' ? values.player3 : values.enteredPlayer3,
+      },
+      player4: {
+        membership: values.player4Membership,
+        player: values.player4Membership === 'member' ? values.player4 : values.enteredPlayer4,
       }
-      console.log('data', data);
-      setConfirmLoading(false);
-    };
-
-    const handleChange = (selectedMembership: any) => {
-      console.log('membership change', selectedMembership);
-       setHostMembership(selectedMembership);
-    };
-    function handlePlayer2HostChange(selectedMembership: any) {
-      console.log('handlePlayer2HostChange change', selectedMembership);
-      setplayer2Membership(selectedMembership)
     }
-    function handlePlayer3HostChange(selectedMembership: any) {
-      console.log('handlePlayer3HostChange change', selectedMembership);
-      setplayer3Membership(selectedMembership)
-    }
-    function handlePlayer4HostChange(selectedMembership: any) {
-      console.log('handlePlayer4HostChange change', selectedMembership);
-      setplayer4Membership(selectedMembership)
-    }
+    console.log('data', data);
+    setConfirmLoading(false);
+  };
 
-
-    //////////////////////////
-    // End Dynamic form item //
-    //////////////////////////
+  const handleChange = (selectedMembership: any) => {
+    console.log('membership change', selectedMembership);
+    setHostMembership(selectedMembership);
+  };
+  function handlePlayer2HostChange(selectedMembership: any) {
+    console.log('handlePlayer2HostChange change', selectedMembership);
+    setplayer2Membership(selectedMembership)
+  }
+  function handlePlayer3HostChange(selectedMembership: any) {
+    console.log('handlePlayer3HostChange change', selectedMembership);
+    setplayer3Membership(selectedMembership)
+  }
+  function handlePlayer4HostChange(selectedMembership: any) {
+    console.log('handlePlayer4HostChange change', selectedMembership);
+    setplayer4Membership(selectedMembership)
+  }
+  ///////////////////////////
+  // End Dynamic form item //
+  ///////////////////////////
 
   const navigate = useNavigate();
 // get data from api
@@ -153,9 +133,6 @@ const teeSlot = [
     const response = await axios.get(`${BASE_URL}/teeSheetDate`);
     console.log(response);
   };
-
-
-
 
   function clickCell(e: any, date: any) {
     if (e.target.tagName !== "TD") return;  //ignore the click if it is not on a cell
@@ -187,7 +164,24 @@ const teeSlot = [
     }
     return days;
   }
+  function Range() {
+    const params: any = useParams();
+    const isoDateFromUrl = params.date;
+    const dateSelected = isoDateFromUrl ? new Date(isoDateFromUrl).toISOString() : undefined;
 
+    const minDate: Date = new Date();
+    const maxDate: Date = getNextTwoWeeksDates()[13]; //get the last date in the array
+    const dateValue: Date | undefined = dateSelected ? new Date(dateSelected) : undefined;
+    return (
+      <div className='control-pane'>
+        <div className='control-section'>
+          <div className='datepicker-control-section'>
+            <DatePickerComponent id="calendar" min={minDate} max={maxDate} value={dateValue ? dateValue : undefined} onChange={(e: any) => handleCardClick(e.value)} placeholder={'Select Date to view tee sheet'}></DatePickerComponent>
+          </div>
+        </div>
+      </div>
+    )
+  }
   function ChosenDateTeesheet() {
     //get params from url
     const params: any = useParams();
@@ -210,6 +204,7 @@ const teeSlot = [
                 {/*<span className="fst-itali fs-5 text-danger">*/}
                 {/*  Please select tee time*/}
                 {/*</span>*/}
+
               </div>
               {/*end title for the table*/}
               <table className="table table-rounded table-striped border gy-5 gs-5" id={"myTable"}
@@ -339,6 +334,7 @@ const teeSlot = [
   }
 
   function handleCardClick(item: Date) {
+    console.log("item", item)
     navigate(`/tee-sheet/${item.toISOString().split("T")[0]}`)
     message.success('You have selected ' + item.toDateString()).then(r => r);
   }
@@ -350,44 +346,55 @@ const teeSlot = [
       <Route
         path="/"
         element={
-          <Row gutter={16}>
-            {/*//map through getNextTwoWeeksDates time*/}
-            <Col span={4}>
-              <Row gutter={[8, 8]}>
-                {getNextTwoWeeksDates().slice(0, 7).map((item, index) => {
-                  return (
-                    <Col span={24}>
-                      <Card title={item.toDateString()} bordered={true} onClick={() => {
-                        handleCardClick(item)
-                      }} className={styles.card}>
-                        Number of Tees: 4
-                      </Card>
-                    </Col>
-                  );
-                }) }
-              </Row>
-            </Col>
-            <Col span={4}>
-              <Row gutter={[8, 8]}>
-                {getNextTwoWeeksDates().slice(7, 14).map((item) => {
-                  return (
-                    <Col span={24}>
-                      <Card title={item.toDateString()} bordered={true} onClick={() => {
-                        handleCardClick(item)
-                      }} className={styles.card}>
-                        Number of Tees: 4
-                      </Card>
-                    </Col>
-                  );
-                }) }
-              </Row>
-            </Col>
-            <Outlet/>
-          </Row>
+          <>
+            <Row>
+              <Col span={24} lg={0}>
+                <KTCard>
+                  <KTCardBody>
+                    <Range />
+                  </KTCardBody>
+                </KTCard>
+              </Col>
+            </Row>
+            <Row gutter={16}>
+              {/*//map through getNextTwoWeeksDates time*/}
+              <Col span={0} lg={4}>
+                <Row gutter={[8, 8]}>
+                  {getNextTwoWeeksDates().slice(0, 7).map((item, index) => {
+                    return (
+                      <Col span={24}>
+                        <Card title={item.toDateString()} bordered={true} onClick={() => {
+                          handleCardClick(item)
+                        }} className={styles.card}>
+                          Number of Tees: 4
+                        </Card>
+                      </Col>
+                    );
+                  }) }
+                </Row>
+              </Col>
+              <Col span={0} lg={4} >
+                <Row gutter={[8, 8]}>
+                  {getNextTwoWeeksDates().slice(7, 14).map((item) => {
+                    return (
+                      <Col span={24}>
+                        <Card title={item.toDateString()} bordered={true} onClick={() => {
+                          handleCardClick(item)
+                        }} className={styles.card}>
+                          Number of Tees: 4
+                        </Card>
+                      </Col>
+                    );
+                  }) }
+                </Row>
+              </Col >
+              <Outlet/>
+            </Row>
+          </>
         }
       >
         <Route path=":date" element={
-          <Col span={16}>
+          <Col span={24} lg={16} >
             <ChosenDateTeesheet />
             <Modal
               // title={`Book for ${new Date(modalContent.date).toDateString()} at ${teeSlot[(modalContent.rowIndex)-1][(modalContent.columnIndex)-1]}`}
