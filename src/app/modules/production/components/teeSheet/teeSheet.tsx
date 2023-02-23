@@ -8,6 +8,7 @@ import { BASE_URL } from "../../../../urls";
 import { Outlet, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "antd/es/form/Form";
   import { InfoCircleOutlined, UserOutlined } from "@ant-design/icons";
+  import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 
 const teeSlot = [
@@ -74,25 +75,6 @@ const teeSlot = [
   //   console.log('members', response.data);
   // }
 
-  // const members = [
-  //   {
-  //     "player": 1,
-  //     "name": "John Doe"
-  //   },
-  //   {
-  //     "player": 2,
-  //     "name": "Jane Doe"
-  //   },
-  //   {
-  //     "player": 3,
-  //     "name": "John Smith"
-  //   },
-  //   {
-  //     "player": 4,
-  //     "name": "Jane Smith"
-  //   }
-  // ]
-
   const memberships = [
     { label: 'Member', value: 'member' },
     { label: 'Non-Member', value: 'non-member' },
@@ -141,11 +123,9 @@ const teeSlot = [
       console.log('handlePlayer4HostChange change', selectedMembership);
       setplayer4Membership(selectedMembership)
     }
-
-
-    //////////////////////////
+    ///////////////////////////
     // End Dynamic form item //
-    //////////////////////////
+    ///////////////////////////
 
   const navigate = useNavigate();
 // get data from api
@@ -153,9 +133,6 @@ const teeSlot = [
     const response = await axios.get(`${BASE_URL}/teeSheetDate`);
     console.log(response);
   };
-
-
-
 
   function clickCell(e: any, date: any) {
     if (e.target.tagName !== "TD") return;  //ignore the click if it is not on a cell
@@ -187,7 +164,24 @@ const teeSlot = [
     }
     return days;
   }
+    function Range() {
+      const params: any = useParams();
+      const isoDateFromUrl = params.date;
+      const dateSelected = isoDateFromUrl ? new Date(isoDateFromUrl).toISOString() : undefined;
 
+      const minDate: Date = new Date();
+      const maxDate: Date = getNextTwoWeeksDates()[13]; //get the last date in the array
+      const dateValue: Date | undefined = dateSelected ? new Date(dateSelected) : undefined;
+      return (
+        <div className='control-pane'>
+          <div className='control-section'>
+            <div className='datepicker-control-section'>
+              <DatePickerComponent id="calendar" min={minDate} max={maxDate} value={dateValue ? dateValue : undefined} onChange={(e: any) => handleCardClick(e.value)} placeholder={'Select Date to view tee sheet'}></DatePickerComponent>
+            </div>
+          </div>
+        </div>
+      )
+    }
   function ChosenDateTeesheet() {
     //get params from url
     const params: any = useParams();
@@ -210,6 +204,7 @@ const teeSlot = [
                 {/*<span className="fst-itali fs-5 text-danger">*/}
                 {/*  Please select tee time*/}
                 {/*</span>*/}
+
               </div>
               {/*end title for the table*/}
               <table className="table table-rounded table-striped border gy-5 gs-5" id={"myTable"}
@@ -339,6 +334,7 @@ const teeSlot = [
   }
 
   function handleCardClick(item: Date) {
+    console.log("item", item)
     navigate(`/tee-sheet/${item.toISOString().split("T")[0]}`)
     message.success('You have selected ' + item.toDateString()).then(r => r);
   }
@@ -350,9 +346,19 @@ const teeSlot = [
       <Route
         path="/"
         element={
+        <>
+          <Row>
+            <Col span={24} lg={0}>
+              <KTCard>
+                <KTCardBody>
+                  <Range />
+                </KTCardBody>
+              </KTCard>
+            </Col>
+          </Row>
           <Row gutter={16}>
             {/*//map through getNextTwoWeeksDates time*/}
-            <Col span={4}>
+            <Col span={0} lg={4}>
               <Row gutter={[8, 8]}>
                 {getNextTwoWeeksDates().slice(0, 7).map((item, index) => {
                   return (
@@ -367,7 +373,7 @@ const teeSlot = [
                 }) }
               </Row>
             </Col>
-            <Col span={4}>
+            <Col span={0} lg={4} >
               <Row gutter={[8, 8]}>
                 {getNextTwoWeeksDates().slice(7, 14).map((item) => {
                   return (
@@ -381,13 +387,14 @@ const teeSlot = [
                   );
                 }) }
               </Row>
-            </Col>
+            </Col >
             <Outlet/>
           </Row>
+        </>
         }
       >
         <Route path=":date" element={
-          <Col span={16}>
+          <Col span={24} lg={16} >
             <ChosenDateTeesheet />
             <Modal
               // title={`Book for ${new Date(modalContent.date).toDateString()} at ${teeSlot[(modalContent.rowIndex)-1][(modalContent.columnIndex)-1]}`}
