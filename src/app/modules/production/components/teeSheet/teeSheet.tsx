@@ -1,4 +1,4 @@
-  import { Button, Card, Col, Form, Input, message, Modal, Row, Select, Space, Tooltip } from "antd";
+  import { Card, Col, Form, Input, message, Modal, Row, Select } from "antd";
 import axios from 'axios';
 import { add } from "date-fns";
 import styles from "./Calendar.module.css";
@@ -7,7 +7,7 @@ import { KTCard, KTCardBody } from "../../../../../_metronic/helpers";
 import { BASE_URL } from "../../../../urls";
 import { Outlet, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "antd/es/form/Form";
-  import { InfoCircleOutlined, UserOutlined } from "@ant-design/icons";
+  import { MailOutlined, UserOutlined } from "@ant-design/icons";
   import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 
@@ -434,12 +434,20 @@ const teeSlot = [
                     </Select>
                   </Form.Item>
                 ) : hostMembership === 'non-member' ? (
-                  <Form.Item name='enteredHost' label='Host'>
+                  <> <Form.Item name='enteredHost' label='Host'>
                     <Input
-                      placeholder="Username"
+                      placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
                     />
                   </Form.Item>
+                     <Form.Item name='enteredHost' label='Email'>
+                      <Input
+                        type='email'
+                        placeholder="Email"
+                        prefix={<MailOutlined className="site-form-item-icon" />}
+                      />
+                    </Form.Item>
+                  </>
                 ) : null}
 
 
@@ -457,12 +465,21 @@ const teeSlot = [
                     </Select>
                   </Form.Item>
                 ) : player2Membership === 'non-member' ? (
+                  <>
                   <Form.Item name='enteredPlayer2' label='Player 2'>
                     <Input
-                      placeholder="Username"
+                      placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
                     />
                   </Form.Item>
+                     <Form.Item name='enteredHost' label='Email'>
+                      <Input
+                        type='email'
+                        placeholder="Email"
+                        prefix={<MailOutlined className="site-form-item-icon" />}
+                      />
+                    </Form.Item>
+                    </>
                 ) : null}
 
 
@@ -480,12 +497,21 @@ const teeSlot = [
                     </Select>
                   </Form.Item>
                 ) : player3Membership === 'non-member' ? (
+                  <>
                   <Form.Item name='enteredPlayer3' label='Player 3'>
                     <Input
-                      placeholder="Username"
+                      placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
                     />
                   </Form.Item>
+                     <Form.Item name='enteredHost' label='Email'>
+                      <Input
+                        type='email'
+                        placeholder="Email"
+                        prefix={<MailOutlined className="site-form-item-icon" />}
+                      />
+                    </Form.Item>
+                    </>
                 ) : null}
 
 
@@ -503,12 +529,21 @@ const teeSlot = [
                     </Select>
                   </Form.Item>
                 ) : player4Membership === 'non-member' ? (
+                  <>
                   <Form.Item name='enteredPlayer4' label='Player 4'>
                     <Input
-                      placeholder="Username"
+                      placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
                     />
                   </Form.Item>
+                     <Form.Item name='enteredHost' label='Email'>
+                      <Input
+                        type='email'
+                        placeholder="Email"
+                        prefix={<MailOutlined className="site-form-item-icon" />}
+                      />
+                    </Form.Item>
+                    </>
                 ) : null}
               </Form>
             </Modal>
