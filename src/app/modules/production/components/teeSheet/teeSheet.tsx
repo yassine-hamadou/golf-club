@@ -1,4 +1,4 @@
-import { Button, Card, Col, Form, Input, message, Modal, Row, Select, Space, Tooltip } from "antd";
+  import { Card, Col, Form, Input, message, Modal, Row, Select } from "antd";
 import axios from 'axios';
 import { add } from "date-fns";
 import styles from "./Calendar.module.css";
@@ -7,8 +7,8 @@ import { KTCard, KTCardBody } from "../../../../../_metronic/helpers";
 import { BASE_URL } from "../../../../urls";
 import { Outlet, Route, Routes, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "antd/es/form/Form";
-import { InfoCircleOutlined, UserOutlined } from "@ant-design/icons";
-import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
+  import { MailOutlined, UserOutlined } from "@ant-design/icons";
+  import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 
 
 const teeSlot = [
@@ -27,7 +27,7 @@ const teeSlot = [
 
 
 
-const TeeSheet = () => {
+  const TeeSheet = () => {
 
   useEffect(() => {
     axios.get(`${BASE_URL}/members`).then((res) => {
@@ -40,7 +40,7 @@ const TeeSheet = () => {
   const [open, setOpen] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [members, setMembers] = useState<any>()
-  console.log('membersAPI', members);
+    console.log('membersAPI', members);
   const [modalContent, setModalContent] = useState({
     date: "",
     rowIndex: 1,
@@ -81,51 +81,51 @@ const TeeSheet = () => {
   ];
   // type SightsKeys = keyof typeof sights;
 
-  const onFinish = (values: any) => {
-    console.log('Received values of form onfinish:', values);
-    console.log('Received values of form onfinish:', getDatestring().toISOString());
-    const data = {
-      date: getDatestring().toISOString(),
-      host: {
-        membership: values.hostMembership,
-        player: values.hostMembership === 'member' ? values.host : values.enteredHost,
-      },
-      player2: {
-        membership: values.player2Membership,
-        player: values.player2Membership === 'member' ? values.player2 : values.enteredPlayer2,
-      },
-      player3: {
-        membership: values.player3Membership,
-        player: values.player3Membership === 'member' ? values.player3 : values.enteredPlayer3,
-      },
-      player4: {
-        membership: values.player4Membership,
-        player: values.player4Membership === 'member' ? values.player4 : values.enteredPlayer4,
+    const onFinish = (values: any) => {
+      console.log('Received values of form onfinish:', values);
+      console.log('Received values of form onfinish:', getDatestring().toISOString());
+      const data = {
+        date: getDatestring().toISOString(),
+        host: {
+          membership: values.hostMembership,
+          player: values.hostMembership === 'member' ? values.host : values.enteredHost,
+        },
+        player2: {
+          membership: values.player2Membership,
+          player: values.player2Membership === 'member' ? values.player2 : values.enteredPlayer2,
+        },
+        player3: {
+          membership: values.player3Membership,
+          player: values.player3Membership === 'member' ? values.player3 : values.enteredPlayer3,
+        },
+        player4: {
+          membership: values.player4Membership,
+          player: values.player4Membership === 'member' ? values.player4 : values.enteredPlayer4,
+        }
       }
-    }
-    console.log('data', data);
-    setConfirmLoading(false);
-  };
+      console.log('data', data);
+      setConfirmLoading(false);
+    };
 
-  const handleChange = (selectedMembership: any) => {
-    console.log('membership change', selectedMembership);
-    setHostMembership(selectedMembership);
-  };
-  function handlePlayer2HostChange(selectedMembership: any) {
-    console.log('handlePlayer2HostChange change', selectedMembership);
-    setplayer2Membership(selectedMembership)
-  }
-  function handlePlayer3HostChange(selectedMembership: any) {
-    console.log('handlePlayer3HostChange change', selectedMembership);
-    setplayer3Membership(selectedMembership)
-  }
-  function handlePlayer4HostChange(selectedMembership: any) {
-    console.log('handlePlayer4HostChange change', selectedMembership);
-    setplayer4Membership(selectedMembership)
-  }
-  ///////////////////////////
-  // End Dynamic form item //
-  ///////////////////////////
+    const handleChange = (selectedMembership: any) => {
+      console.log('membership change', selectedMembership);
+       setHostMembership(selectedMembership);
+    };
+    function handlePlayer2HostChange(selectedMembership: any) {
+      console.log('handlePlayer2HostChange change', selectedMembership);
+      setplayer2Membership(selectedMembership)
+    }
+    function handlePlayer3HostChange(selectedMembership: any) {
+      console.log('handlePlayer3HostChange change', selectedMembership);
+      setplayer3Membership(selectedMembership)
+    }
+    function handlePlayer4HostChange(selectedMembership: any) {
+      console.log('handlePlayer4HostChange change', selectedMembership);
+      setplayer4Membership(selectedMembership)
+    }
+    ///////////////////////////
+    // End Dynamic form item //
+    ///////////////////////////
 
   const navigate = useNavigate();
 // get data from api
@@ -164,24 +164,24 @@ const TeeSheet = () => {
     }
     return days;
   }
-  function Range() {
-    const params: any = useParams();
-    const isoDateFromUrl = params.date;
-    const dateSelected = isoDateFromUrl ? new Date(isoDateFromUrl).toISOString() : undefined;
+    function Range() {
+      const params: any = useParams();
+      const isoDateFromUrl = params.date;
+      const dateSelected = isoDateFromUrl ? new Date(isoDateFromUrl).toISOString() : undefined;
 
-    const minDate: Date = new Date();
-    const maxDate: Date = getNextTwoWeeksDates()[13]; //get the last date in the array
-    const dateValue: Date | undefined = dateSelected ? new Date(dateSelected) : undefined;
-    return (
-      <div className='control-pane'>
-        <div className='control-section'>
-          <div className='datepicker-control-section'>
-            <DatePickerComponent id="calendar" min={minDate} max={maxDate} value={dateValue ? dateValue : undefined} onChange={(e: any) => handleCardClick(e.value)} placeholder={'Select Date to view tee sheet'}></DatePickerComponent>
+      const minDate: Date = new Date();
+      const maxDate: Date = getNextTwoWeeksDates()[13]; //get the last date in the array
+      const dateValue: Date | undefined = dateSelected ? new Date(dateSelected) : undefined;
+      return (
+        <div className='control-pane'>
+          <div className='control-section'>
+            <div className='datepicker-control-section'>
+              <DatePickerComponent id="calendar" min={minDate} max={maxDate} value={dateValue ? dateValue : undefined} onChange={(e: any) => handleCardClick(e.value)} placeholder={'Select Date to view tee sheet'}></DatePickerComponent>
+            </div>
           </div>
         </div>
-      </div>
-    )
-  }
+      )
+    }
   function ChosenDateTeesheet() {
     //get params from url
     const params: any = useParams();
@@ -346,51 +346,51 @@ const TeeSheet = () => {
       <Route
         path="/"
         element={
-          <>
-            <Row>
-              <Col span={24} lg={0}>
-                <KTCard>
-                  <KTCardBody>
-                    <Range />
-                  </KTCardBody>
-                </KTCard>
-              </Col>
-            </Row>
-            <Row gutter={16}>
-              {/*//map through getNextTwoWeeksDates time*/}
-              <Col span={0} lg={4}>
-                <Row gutter={[8, 8]}>
-                  {getNextTwoWeeksDates().slice(0, 7).map((item, index) => {
-                    return (
-                      <Col span={24}>
-                        <Card title={item.toDateString()} bordered={true} onClick={() => {
-                          handleCardClick(item)
-                        }} className={styles.card}>
-                          Number of Tees: 4
-                        </Card>
-                      </Col>
-                    );
-                  }) }
-                </Row>
-              </Col>
-              <Col span={0} lg={4} >
-                <Row gutter={[8, 8]}>
-                  {getNextTwoWeeksDates().slice(7, 14).map((item) => {
-                    return (
-                      <Col span={24}>
-                        <Card title={item.toDateString()} bordered={true} onClick={() => {
-                          handleCardClick(item)
-                        }} className={styles.card}>
-                          Number of Tees: 4
-                        </Card>
-                      </Col>
-                    );
-                  }) }
-                </Row>
-              </Col >
-              <Outlet/>
-            </Row>
-          </>
+        <>
+          <Row>
+            <Col span={24} lg={0}>
+              <KTCard>
+                <KTCardBody>
+                  <Range />
+                </KTCardBody>
+              </KTCard>
+            </Col>
+          </Row>
+          <Row gutter={16}>
+            {/*//map through getNextTwoWeeksDates time*/}
+            <Col span={0} lg={4}>
+              <Row gutter={[8, 8]}>
+                {getNextTwoWeeksDates().slice(0, 7).map((item, index) => {
+                  return (
+                    <Col span={24}>
+                      <Card title={item.toDateString()} bordered={true} onClick={() => {
+                        handleCardClick(item)
+                      }} className={styles.card}>
+                        Number of Tees: 4
+                      </Card>
+                    </Col>
+                  );
+                }) }
+              </Row>
+            </Col>
+            <Col span={0} lg={4} >
+              <Row gutter={[8, 8]}>
+                {getNextTwoWeeksDates().slice(7, 14).map((item) => {
+                  return (
+                    <Col span={24}>
+                      <Card title={item.toDateString()} bordered={true} onClick={() => {
+                        handleCardClick(item)
+                      }} className={styles.card}>
+                        Number of Tees: 4
+                      </Card>
+                    </Col>
+                  );
+                }) }
+              </Row>
+            </Col >
+            <Outlet/>
+          </Row>
+        </>
         }
       >
         <Route path=":date" element={
@@ -434,12 +434,20 @@ const TeeSheet = () => {
                     </Select>
                   </Form.Item>
                 ) : hostMembership === 'non-member' ? (
-                  <Form.Item name='enteredHost' label='Host'>
+                  <> <Form.Item name='enteredHost' label='Host'>
                     <Input
-                      placeholder="Username"
+                      placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
                     />
                   </Form.Item>
+                     <Form.Item name='enteredHost' label='Email'>
+                      <Input
+                        type='email'
+                        placeholder="Email"
+                        prefix={<MailOutlined className="site-form-item-icon" />}
+                      />
+                    </Form.Item>
+                  </>
                 ) : null}
 
 
@@ -457,12 +465,21 @@ const TeeSheet = () => {
                     </Select>
                   </Form.Item>
                 ) : player2Membership === 'non-member' ? (
+                  <>
                   <Form.Item name='enteredPlayer2' label='Player 2'>
                     <Input
-                      placeholder="Username"
+                      placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
                     />
                   </Form.Item>
+                     <Form.Item name='enteredHost' label='Email'>
+                      <Input
+                        type='email'
+                        placeholder="Email"
+                        prefix={<MailOutlined className="site-form-item-icon" />}
+                      />
+                    </Form.Item>
+                    </>
                 ) : null}
 
 
@@ -480,12 +497,21 @@ const TeeSheet = () => {
                     </Select>
                   </Form.Item>
                 ) : player3Membership === 'non-member' ? (
+                  <>
                   <Form.Item name='enteredPlayer3' label='Player 3'>
                     <Input
-                      placeholder="Username"
+                      placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
                     />
                   </Form.Item>
+                     <Form.Item name='enteredHost' label='Email'>
+                      <Input
+                        type='email'
+                        placeholder="Email"
+                        prefix={<MailOutlined className="site-form-item-icon" />}
+                      />
+                    </Form.Item>
+                    </>
                 ) : null}
 
 
@@ -503,12 +529,21 @@ const TeeSheet = () => {
                     </Select>
                   </Form.Item>
                 ) : player4Membership === 'non-member' ? (
+                  <>
                   <Form.Item name='enteredPlayer4' label='Player 4'>
                     <Input
-                      placeholder="Username"
+                      placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
                     />
                   </Form.Item>
+                     <Form.Item name='enteredHost' label='Email'>
+                      <Input
+                        type='email'
+                        placeholder="Email"
+                        prefix={<MailOutlined className="site-form-item-icon" />}
+                      />
+                    </Form.Item>
+                    </>
                 ) : null}
               </Form>
             </Modal>
