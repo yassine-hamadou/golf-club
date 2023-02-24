@@ -1,7 +1,7 @@
-import { KTCard, KTCardBody, KTSVG } from "../../../../../../_metronic/helpers";
 import { Button, Input, Space, Table } from "antd";
 import { Link, Route, Routes } from "react-router-dom";
 import { useState } from "react";
+import { KTCard, KTCardBody, KTSVG } from "../../../../../../../_metronic/helpers";
 
 
 const columns: any = [
@@ -21,7 +21,7 @@ const columns: any = [
     },
   },
   {
-    title: 'Name',
+    title: 'Fist Name',
     sorter: (a: any, b: any) => {
       if (a.txmodel > b.txmodel) {
         return 1
@@ -36,15 +36,24 @@ const columns: any = [
 
   },
   {
-    title: 'Amount',
+    title: 'Last Name',
     sorter: (a: any, b: any) => a.downTime - b.downTime,
   },
   {
-    title: 'Frequency',
+    title: 'Email',
   },
+  {
+    title: 'Phone',
+  },
+  {
+    title: 'Address',
+  },
+  {
+    title: 'Gender',
+  }
 ]
 
-export function Fees() {
+export function CaddiesTable() {
   const [loading, setLoading] = useState(false)
 
   return (
@@ -64,12 +73,12 @@ export function Fees() {
                   </Button>
                 </Space>
                 <Space style={{marginBottom: 16}}>
-                  {/*<Link to='add'>*/}
-                  {/*  <button type='button' className='btn btn-primary me-3'>*/}
-                  {/*    <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-2' />*/}
-                  {/*    Add*/}
-                  {/*  </button>*/}
-                  {/*</Link>*/}
+                  <Link to='add'>
+                    <button type='button' className='btn btn-primary me-3'>
+                      <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-2' />
+                      Add
+                    </button>
+                  </Link>
                 </Space>
               </div>
               <Table

@@ -46,10 +46,6 @@ export const CourseSetup: any = () => {
     }
   ]
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
           <>
             <PageTitle breadcrumbs={accountBreadCrumbs}>Course Setup</PageTitle>
             <KTCard>
@@ -83,26 +79,5 @@ export const CourseSetup: any = () => {
               </KTCardBody>
             </KTCard>
           </>
-        }
-      />
-      <Route
-        path="add"
-        element={
-          <>
-            <PageTitle breadcrumbs={
-              [
-                ...accountBreadCrumbs,
-                {
-                  title: 'Add',
-                  path: '/course-setup/add',
-                  isActive: true,
-                }
-              ]
-            }>Add Course Setup</PageTitle>
-            <AddCourseSetup />
-          </>
-        }
-      />
-    </Routes>
   );
 }
