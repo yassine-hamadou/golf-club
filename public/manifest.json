@@ -1,0 +1,23 @@
+{
+  "short_name": "Metronic React App",
+  "name": "Metronic React App demo1",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+      {
+      "src": "./media/logos/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable",
+      "density": 4.0,
+      "platform": "any",
+      "destination": "any",
+      "orientation": "portrait"
+      }
+  ],
+  "theme_color": "#2E3AA1",
+  "orientation": "portrait",
+  "apple-touch-icon": "./media/logos/logo.png",
+  "background_color": "#2E3AA1",
+  "sizes": "512x512"
+}
