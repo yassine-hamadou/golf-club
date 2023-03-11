@@ -543,8 +543,18 @@ const teeSlot = [
                         prefix={<MailOutlined className="site-form-item-icon" />}
                       />
                     </Form.Item>
+
                     </>
                 ) : null}
+                {/*<Form.Item name="caddy" label="Caddy" rules={[{ required: true, message: 'Missing player4' }]}>*/}
+                {/*  <Select placeholder='Select Caddy'>*/}
+                {/*    {members.map((member: any) => (*/}
+                {/*      <Option key={member.player} value={member.player}>*/}
+                {/*        {member.name}*/}
+                {/*      </Option>*/}
+                {/*    ))}*/}
+                {/*  </Select>*/}
+                {/*</Form.Item>*/}
               </Form>
             </Modal>
           </Col>
