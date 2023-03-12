@@ -44,10 +44,6 @@ const AddCourseSetup = () =>{
         </a>
       </Link>
       <form onSubmit={handleSubmit}>
-        <div className="tab-content">
-
-          {/* Details */}
-          {activeTab === 'tab1' &&
             <div>
               <div className='row mb-0'>
                 <div className='col-6 mb-7'>
@@ -69,17 +65,8 @@ const AddCourseSetup = () =>{
                   <label htmlFor="exampleFormControlInput1" className="required form-label">Handicap</label>
                   <input type="number" name="handicap" onChange={handleChange}  className="form-control form-control-solid" />
                 </div>
-              </div>
-              <div className='row mb-0'>
-                <div className='col-6 mb-7'>
-                  <label htmlFor="exampleFormControlInput1" className="required form-label">Game Type</label>
-                  <input type="text" name="handicap" onChange={handleChange}  className="form-control form-control-solid" />
-                </div>
-              </div>
+              </div> 
             </div>
-          }
-
-        </div>
         <button className='btn btn-primary' type="submit">Submit</button>
       </form>
     </div>

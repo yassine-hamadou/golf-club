@@ -5,8 +5,13 @@ import {
   Week,
   Month,
   Agenda,
-  Inject, DragAndDrop, Resize, WorkWeek,
-} from "@syncfusion/ej2-react-schedule";
+  Inject,
+  DragAndDrop,
+  Resize,
+  WorkWeek,
+  ViewsDirective,
+  ViewDirective,
+} from '@syncfusion/ej2-react-schedule'
 import {DateTimePickerComponent} from '@syncfusion/ej2-react-calendars'
 import {DropDownListComponent} from '@syncfusion/ej2-react-dropdowns'
 import {useMutation, useQuery, useQueryClient} from 'react-query'
@@ -20,19 +25,7 @@ import '@syncfusion/ej2-popups/styles/material.css'
 import '@syncfusion/ej2-splitbuttons/styles/material.css'
 import '@syncfusion/ej2-react-schedule/styles/material.css'
 import '@syncfusion/ej2-buttons/styles/material.css'
-import {
-  addSchedule,
-  deleteSchedule,
-  fetchCustodians,
-  fetchSchedules,
-  fetchServiceTypes,
-  fetchVmequps,
-  localData,
-  updateSchedule,
-} from './requests'
 import {message} from 'antd'
-import { useRef, useState } from "react";
-import { PageLink } from "../../../../../../_metronic/layout/core";
 
 /**
  *  Schedule editor custom fields sample
@@ -49,13 +42,23 @@ L10n.load({
     },
   },
 })
-
+const localData = [
+  {
+    Id: 1,
+    Subject: 'Marco Polo Tornament',
+    StartTime: new Date(2021, 0, 10, 9, 0),
+    EndTime: new Date(2021, 0, 10, 11, 30),
+    IsAllDay: false,
+    Description: 'Tornament',
+    Location: 'Location 1',
+  },
+]
 const Calendar = () => {
   let scheduleObj
   //Access the same location query from cycle details component
   const locationQuery = useQueryClient().getQueryData('Locations')
 
-    let dropDownListObject; //to access the dropdownlist component
+  let dropDownListObject //to access the dropdownlist component
   function editorTemplate(props) {
     console.log('props', props)
     function getFleetModel(e) {}
@@ -66,9 +69,9 @@ const Calendar = () => {
             <td className='e-textlabel'>Game</td>
             <td colSpan={4}>
               <DropDownListComponent
-                id='Summary'
+                id='title'
                 // placeholder='Choose Employee Code'
-                data-name='fleetId'
+                data-name='title'
                 className='e-field'
                 style={{width: '100%'}}
                 fields={{text: 'text', value: 'value'}}
@@ -78,7 +81,6 @@ const Calendar = () => {
             </td>
           </tr>
           <tr>
-
             <td className='e-textlabel'>Type of Game</td>
             <td colSpan={4}>
               <DropDownListComponent
@@ -129,17 +131,20 @@ const Calendar = () => {
       <div className='col-lg-12 control-section'>
         <div className='control-wrapper'>
           <ScheduleComponent
-              width='100%'
-              height='650px'
-              ref={t => scheduleObj = t}
-              // eventSettings={{ dataSource: data }}
-              // eventRendered={onEventRendered.bind(this)}
-              currentView='Week'
-              id='schedule'
-              editorTemplate={editorTemplate}
+            width='100%'
+            height='650px'
+            ref={(t) => (scheduleObj = t)}
+            // eventSettings={{ dataSource: data }}
+            // eventRendered={onEventRendered.bind(this)}
+            currentView='Month'
+            id='schedule'
+            editorTemplate={editorTemplate}
           >
-          <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]} />
-        </ScheduleComponent>
+            <ViewsDirective>
+              <ViewDirective option='Month'></ViewDirective>
+            </ViewsDirective>
+            <Inject services={[Month, Agenda]} />
+          </ScheduleComponent>
         </div>
       </div>
     </div>

@@ -5,9 +5,9 @@ import { useState } from "react";
 
 
 const columns: any = [
-  {
-    title: 'Picture',
-  },
+  // {
+  //   title: 'Picture',
+  // },
   {
     title: 'Code',
     sorter: (a: any, b: any) => {
@@ -64,12 +64,12 @@ export function Fees() {
                   </Button>
                 </Space>
                 <Space style={{marginBottom: 16}}>
-                  {/*<Link to='add'>*/}
-                  {/*  <button type='button' className='btn btn-primary me-3'>*/}
-                  {/*    <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-2' />*/}
-                  {/*    Add*/}
-                  {/*  </button>*/}
-                  {/*</Link>*/}
+                  <Link to='add'>
+                    <button type='button' className='btn btn-primary me-3'>
+                      <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-2' />
+                      Add
+                    </button>
+                  </Link>
                 </Space>
               </div>
               <Table

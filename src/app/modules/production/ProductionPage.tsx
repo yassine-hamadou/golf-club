@@ -1,18 +1,21 @@
 import React from 'react'
 import {Navigate, Outlet, Route, Routes} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_metronic/layout/core'
-import {Register} from "./components/register/Register";
-import {GamePlanning} from "./components/gamePlanning/gameSchedule";
-import { Gameplay } from "./components/teeSheet/Gameplay";
-import { Setup } from './components/teeSheet/setup/Setup';
-import { Reports } from "./components/reports/MembersReport";
-import { Shop } from './components/shop/Shop';
-import { TeeSheet } from './components/teeSheet/teeSheet';
-import { CourseSetup } from "./components/teeSheet/setup/CourseSetup";
-import AddCourseSetup from "./components/teeSheet/setup/AddCourseSetup";
-import { Fees } from './components/teeSheet/setup/Fees';
-import { CaddiesTable } from "./components/teeSheet/setup/caddies/CaddiesTable";
-import AddCaddy from './components/teeSheet/setup/caddies/AddCaddy';
+import {Register} from './components/register/Register'
+import {GamePlanning} from './components/gamePlanning/gameSchedule'
+import {Gameplay} from './components/teeSheet/Gameplay'
+import {Setup} from './components/teeSheet/setup/Setup'
+import {Reports} from './components/reports/MembersReport'
+import {Shop} from './components/shop/Shop'
+import {TeeSheet} from './components/teeSheet/teeSheet'
+import {CourseSetup} from './components/teeSheet/setup/CourseSetup'
+import AddCourseSetup from './components/teeSheet/setup/AddCourseSetup'
+import {Fees} from './components/teeSheet/setup/Fees'
+import {CaddiesTable} from './components/teeSheet/setup/caddies/CaddiesTable'
+import AddCaddy from './components/teeSheet/setup/caddies/AddCaddy'
+import {AddFeeSetup} from './components/teeSheet/setup/AddFeeSetup'
+import {GameTypeTable} from './components/teeSheet/setup/GameTypeTable'
+import {AddGameTypeSetup} from './components/teeSheet/setup/AddGameTypeSetup'
 const accountBreadCrumbs: Array<PageLink> = []
 
 const ProductionPage: React.FC = () => {
@@ -105,7 +108,7 @@ const ProductionPage: React.FC = () => {
         <Route
           path='fees/*'
           element={
-          <>
+            <>
               <Outlet />
             </>
           }
@@ -116,6 +119,42 @@ const ProductionPage: React.FC = () => {
               <>
                 <PageTitle breadcrumbs={accountBreadCrumbs}>Fees Setup</PageTitle>
                 <Fees />
+              </>
+            }
+          />
+          <Route
+            path='add'
+            element={
+              <>
+                <PageTitle breadcrumbs={accountBreadCrumbs}>Add Fee Setup</PageTitle>
+                <AddFeeSetup />
+              </>
+            }
+          />
+        </Route>
+        <Route
+          path='game-type/*'
+          element={
+            <>
+              <Outlet />
+            </>
+          }
+        >
+          <Route
+            path=''
+            element={
+              <>
+                <PageTitle breadcrumbs={accountBreadCrumbs}>Game Type Setup</PageTitle>
+                <GameTypeTable />
+              </>
+            }
+          />
+          <Route
+            path='add'
+            element={
+              <>
+                <PageTitle breadcrumbs={accountBreadCrumbs}>Add Game Type Setup</PageTitle>
+                <AddGameTypeSetup />
               </>
             }
           />
@@ -133,7 +172,7 @@ const ProductionPage: React.FC = () => {
             element={
               <>
                 <PageTitle breadcrumbs={accountBreadCrumbs}>Caddies Setup</PageTitle>
-                 <CaddiesTable />
+                <CaddiesTable />
               </>
             }
           />
@@ -148,14 +187,16 @@ const ProductionPage: React.FC = () => {
           />
         </Route>
       </Route>
-      <Route path='/reports/*' element={
-        <>
-          <PageTitle breadcrumbs={accountBreadCrumbs}>Reports</PageTitle>
-          <Reports/>
-        </>
-      } />
+      <Route
+        path='/reports/*'
+        element={
+          <>
+            <PageTitle breadcrumbs={accountBreadCrumbs}>Reports</PageTitle>
+            <Reports />
+          </>
+        }
+      />
       <Route path='*' element={<Navigate to='/error/404' />} />
-
     </Routes>
   )
 }

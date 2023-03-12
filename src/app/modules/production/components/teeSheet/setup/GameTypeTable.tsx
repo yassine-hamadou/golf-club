@@ -1,16 +1,15 @@
-import {Link, Route, Routes} from 'react-router-dom'
 import {PageTitle} from '../../../../../../_metronic/layout/core'
 import {KTCard, KTCardBody, KTSVG} from '../../../../../../_metronic/helpers'
 import {Button, Input, Space, Table} from 'antd'
-let accountBreadCrumbs: any = []
+import {Link} from 'react-router-dom'
 
-export const CourseSetup: any = () => {
+export const GameTypeTable = () => {
   const columns: any = [
     {
-      title: 'Holes',
+      title: 'ID',
     },
     {
-      title: 'Yard',
+      title: 'Game Type',
       sorter: (a: any, b: any) => {
         if (a.txmanf > b.txmanf) {
           return 1
@@ -22,26 +21,12 @@ export const CourseSetup: any = () => {
       },
     },
     {
-      title: 'Par',
-      sorter: (a: any, b: any) => {
-        if (a.txmodel > b.txmodel) {
-          return 1
-        }
-        if (a.txmodel < b.txmodel) {
-          return -1
-        }
-        return 0
-      },
-    },
-    {},
-    {
-      title: 'Handicap',
-      sorter: (a: any, b: any) => a.downTime - b.downTime,
+      title: 'Action',
     },
   ]
   return (
     <>
-      <PageTitle breadcrumbs={accountBreadCrumbs}>Course Setup</PageTitle>
+      <PageTitle>Game Type</PageTitle>
       <KTCard>
         <KTCardBody>
           <div className='d-flex justify-content-between'>
