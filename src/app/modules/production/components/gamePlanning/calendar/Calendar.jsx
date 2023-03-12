@@ -26,6 +26,7 @@ import '@syncfusion/ej2-splitbuttons/styles/material.css'
 import '@syncfusion/ej2-react-schedule/styles/material.css'
 import '@syncfusion/ej2-buttons/styles/material.css'
 import {message} from 'antd'
+import {InputBase} from '@mui/material'
 
 /**
  *  Schedule editor custom fields sample
@@ -66,28 +67,31 @@ const Calendar = () => {
       <table className='custom-event-editor' style={{width: '100%'}} cellPadding={5}>
         <tbody>
           <tr>
-            <td className='e-textlabel'>Game</td>
+            <td className='e-textlabel'>Title</td>
             <td colSpan={4}>
-              <DropDownListComponent
+              <input
                 id='title'
-                // placeholder='Choose Employee Code'
-                data-name='title'
-                className='e-field'
+                placeholder='Title'
+                name='Subject'
+                className='e-field e-input'
+                type='text'
                 style={{width: '100%'}}
-                fields={{text: 'text', value: 'value'}}
-                value={props && props.fleetId ? `${props.fleetId}` : null}
-                change={getFleetModel}
               />
             </td>
           </tr>
           <tr>
-            <td className='e-textlabel'>Type of Game</td>
+            <td className='e-textlabel'>Game Type</td>
             <td colSpan={4}>
               <DropDownListComponent
-                id='serviceTypeId'
+                id='gameType'
                 placeholder='Choose Type of Game'
-                data-name='serviceTypeId'
+                data-name='gameType'
                 className='e-field'
+                // dataSource={gameType?.data?.data}
+                dataSource={[
+                  {text: 'Tournament', value: 'Tournament'},
+                  {text: 'Training', value: 'Training'},
+                ]}
                 ref={(scope) => (dropDownListObject = scope)}
                 style={{width: '100%'}}
                 fields={{text: 'text', value: 'value'}}
@@ -96,7 +100,7 @@ const Calendar = () => {
             </td>
           </tr>
           <tr>
-            <td className='e-textlabel'>From</td>
+            <td className='e-textlabel'>First Tee</td>
             <td colSpan={4}>
               <DateTimePickerComponent
                 id='StartTime'
@@ -108,7 +112,7 @@ const Calendar = () => {
             </td>
           </tr>
           <tr>
-            <td className='e-textlabel'>To</td>
+            <td className='e-textlabel'>Last Tee</td>
             <td colSpan={4}>
               <DateTimePickerComponent
                 id='EndTime'
@@ -126,6 +130,11 @@ const Calendar = () => {
     )
   }
 
+  let onCellClick = (args) => {
+    scheduleObj.openEditor(args, 'Add')
+    scheduleObj.quickPopup.cancel()
+    //quick info popup is not opening on cell click
+  }
   return (
     <div className='schedule-control-section'>
       <div className='col-lg-12 control-section'>
@@ -139,6 +148,7 @@ const Calendar = () => {
             currentView='Month'
             id='schedule'
             editorTemplate={editorTemplate}
+            cellClick={onCellClick}
           >
             <ViewsDirective>
               <ViewDirective option='Month'></ViewDirective>
