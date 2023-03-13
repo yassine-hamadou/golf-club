@@ -20,19 +20,7 @@ import '@syncfusion/ej2-popups/styles/material.css'
 import '@syncfusion/ej2-splitbuttons/styles/material.css'
 import '@syncfusion/ej2-react-schedule/styles/material.css'
 import '@syncfusion/ej2-buttons/styles/material.css'
-import {
-  addSchedule,
-  deleteSchedule,
-  fetchCustodians,
-  fetchSchedules,
-  fetchServiceTypes,
-  fetchVmequps,
-  localData,
-  updateSchedule,
-} from './requests'
 import {message} from 'antd'
-import { useRef, useState } from "react";
-import { PageLink } from "../../../../../../_metronic/layout/core";
 
 /**
  *  Schedule editor custom fields sample

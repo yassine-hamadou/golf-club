@@ -9,6 +9,7 @@ import { Reports } from "./components/reports/MembersReport";
 import { Shop } from './components/shop/Shop';
 import { TeeSheet } from './components/teeSheet/teeSheet';
 import { AccountPage } from './components/teeSheet/setup/AccountPage';
+import {History} from "./components/teeSheet/setup/History";
 const accountBreadCrumbs: Array<PageLink> = []
 
 const ProductionPage: React.FC = () => {
@@ -19,7 +20,7 @@ const ProductionPage: React.FC = () => {
         path='/register/*'
         element={
           <>
-            <PageTitle breadcrumbs={accountBreadCrumbs}>Members</PageTitle>
+            <PageTitle>Members</PageTitle>
             <Register />
           </>
         }
@@ -28,7 +29,7 @@ const ProductionPage: React.FC = () => {
         path='/planning/*'
         element={
           <>
-            <PageTitle breadcrumbs={accountBreadCrumbs}>Planning</PageTitle>
+            <PageTitle>Planning</PageTitle>
             <GamePlanning />
           </>
         }
@@ -39,6 +40,15 @@ const ProductionPage: React.FC = () => {
           <>
             <PageTitle breadcrumbs={accountBreadCrumbs}>Tee Sheet</PageTitle>
             <TeeSheet />
+          </>
+        }
+      />
+        <Route
+        path='/score-history/*'
+        element={
+          <>
+            <PageTitle>Score History</PageTitle>
+            <History />
           </>
         }
       />
@@ -54,7 +64,7 @@ const ProductionPage: React.FC = () => {
                 path=''
                 element={
                     <>
-                        <PageTitle breadcrumbs={accountBreadCrumbs}>Account</PageTitle>
+                        <PageTitle>Account</PageTitle>
                         <AccountPage />
                     </>
                 }
@@ -64,7 +74,7 @@ const ProductionPage: React.FC = () => {
         path='/gameplay/*'
         element={
           <>
-            <PageTitle breadcrumbs={accountBreadCrumbs}>Gameplay</PageTitle>
+            <PageTitle>Gameplay</PageTitle>
             <Gameplay />
           </>
         }
@@ -73,7 +83,7 @@ const ProductionPage: React.FC = () => {
         path='/shop/*'
         element={
           <>
-            <PageTitle breadcrumbs={accountBreadCrumbs}>Shop</PageTitle>
+            <PageTitle>Shop</PageTitle>
             <Shop />
           </>
         }
@@ -82,14 +92,14 @@ const ProductionPage: React.FC = () => {
         path='/setup/*'
         element={
           <>
-            <PageTitle breadcrumbs={accountBreadCrumbs}>Setup</PageTitle>
+            <PageTitle>Setup</PageTitle>
             <Setup />
           </>
         }
       />
       <Route path='/reports/*' element={
         <>
-          <PageTitle breadcrumbs={accountBreadCrumbs}>Reports</PageTitle>
+          <PageTitle>Reports</PageTitle>
           <Reports/>
         </>
       } />

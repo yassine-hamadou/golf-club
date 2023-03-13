@@ -197,7 +197,7 @@ const DashboardPage: FC = () => (
           </div>
       </div>
       <div className='row g-6 g-xl-9 mb-6 mb-xl-9'>
-          <Link to='/calendar' className='col-6 col-sm-6 col-xl'>
+          <Link to='/planning' className='col-6 col-sm-6 col-xl'>
               <Card4 icon='/media/icons/egolf/golfBall.png' title='Calendar' description='' />
           </Link>
           <Link to='/tee-sheet' className='col-6 col-sm-6 col-xl'>

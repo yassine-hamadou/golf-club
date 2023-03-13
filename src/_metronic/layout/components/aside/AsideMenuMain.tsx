@@ -8,10 +8,12 @@ export function AsideMenuMain() {
 
   return (
     <>
-        <AsideMenuItem to='register' icon='/media/icons/duotune/general/gen055.svg' title='Membership' />
-        {/*<AsideMenuItem to='planning' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen014.svg' title='Calendar' />*/}
-        <AsideMenuItem to='tee-sheet' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen022.svg' title='Tee Sheet' />
-        <AsideMenuItem to='gameplay' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen022.svg' title='Gameplay' />
+        <AsideMenuItem to='planning' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen014.svg' title='Calendar' />
+        <AsideMenuItem to='tee-sheet' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen022.svg' title='Book Tee Time' />
+        <AsideMenuItem to='gameplay' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen022.svg' title='Score Board' />
+        <AsideMenuItem to='score-history' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen022.svg' title='Score History' />
+
+        {/*<AsideMenuItem to='register' icon='/media/icons/duotune/general/gen055.svg' title='Membership' />*/}
         {/*<AsideMenuItem to='shop' fontIcon='bi-archive' icon='/media/icons/duotune/ecommerce/ecm001.svg' title='Shop' />*/}
         {/*<AsideMenuItem to='pos' fontIcon='bi-archive' icon='/media/icons/duotune/finance/fin007.svg' title='POS' />*/}
         {/*<AsideMenuItem to='partners' fontIcon='bi-archive' icon='/media/icons/duotune/technology/teh010.svg' title='Partners' />*/}

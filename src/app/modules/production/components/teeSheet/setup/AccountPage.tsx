@@ -96,9 +96,7 @@ export const AccountPage = () => {
                         </Upload>
                     </Form.Item>
                     <Form.Item name={'membershipID'} label={'Membership ID'}>
-                        <Input readOnly
-                                 placeholder="Membership ID"
-                        />
+                        <Input readOnly placeholder="Membership ID"/>
                     </Form.Item>
                     <Form.Item
                       label="First Name"
