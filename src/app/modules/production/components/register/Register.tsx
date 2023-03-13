@@ -4,16 +4,24 @@ import {Link, Route, Routes} from 'react-router-dom'
 import {KTCard, KTCardBody, KTSVG} from '../../../../../_metronic/helpers'
 import Add from './add/Registration'
 import {PageLink, PageTitle} from '../../../../../_metronic/layout/core'
+import {useQuery} from "react-query";
+import { getMembers } from '../Requests'
+
+
+
 
 const Register = () => {
   // const [gridData, setGridData] = useState([])
   const [loading, setLoading] = useState(false)
+
+  const {data: members} = useQuery('membersQuery', () => getMembers())
   // const [searchText, setSearchText] = useState('')
   // let [filteredData] = useState([])
-
+console.log("Members", members)
   const columns: any = [
     {
       title: 'Picture',
+      dataIndex: 'picture',
     },
     {
       title: 'Membership ID',
@@ -26,6 +34,7 @@ const Register = () => {
         }
         return 0
       },
+      dataIndex: 'code'
     },
     {
       title: 'First Name',
@@ -38,43 +47,50 @@ const Register = () => {
         }
         return 0
       },
+      dataIndex: 'fname'
     },
     {
       title: 'Last Name',
       sorter: (a: any, b: any) => a.downTime - b.downTime,
+      dataIndex: 'lname'
     },
     {
       title: 'Phone Number',
+      dataIndex: 'phone'
     },
     {
       title: 'Email',
+      dataIndex: 'email'
     },
     {
       title: 'Gender',
+      dataIndex: 'gender'
     },
     {
       title: 'DOB',
+      dataIndex: 'dateOfBirth'
     },
     {
       title: 'Player Handicap',
+        dataIndex: 'playerHandicap'
     },
     {
       title: 'GGA ID#',
+      dataIndex: 'ggaid'
     },
     {
       title: 'Status',
+        dataIndex: 'status'
     },
     {
       title: 'Action',
       render: () => (
         <>
-          <button type='button' className='btn btn-primary me-3'>
-            <KTSVG path='/media/icons/duotune/general/gen024.svg' className='svg-icon-2' />
-            Deactivate
-          </button>
-          <button type='button' className='btn btn-primary me-3'>
-            <KTSVG path='/media/icons/duotune/general/gen024.svg' className='svg-icon-2' />
+          <button type='button' className='btn btn-secondary me-3'>
             Suspend
+          </button>
+          <button type='button' className='btn btn-danger me-3'>
+            Deactivate
           </button>
         </>
       ),
@@ -114,7 +130,7 @@ const Register = () => {
                     </Link>
                   </Space>
                 </div>
-                <Table columns={columns} bordered loading={loading} />
+                <Table columns={columns} bordered loading={loading} dataSource={members?.data} />
               </KTCardBody>
             </KTCard>
           </>
@@ -135,3 +151,5 @@ const Register = () => {
 }
 
 export {Register}
+
+
