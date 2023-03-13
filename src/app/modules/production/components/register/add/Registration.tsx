@@ -30,7 +30,6 @@ const Add = () =>{
   }
 
   const [fileList, setFileList] = useState<UploadFile[]>([
-    
   ]);
 
   const onChange: UploadProps['onChange'] = ({ fileList: newFileList }) => {

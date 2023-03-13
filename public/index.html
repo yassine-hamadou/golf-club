@@ -35,13 +35,12 @@
   //   // });
   // }
   // Disable zooming on the entire web page
-  document.addEventListener('touchmove', function(event) {
-    if (event.scale !== 1) { event.preventDefault(); }
-  }, { passive: false });
+  // document.addEventListener('touchmove', function(event) {
+  //   if (event.scale !== 1) { event.preventDefault(); }
+  // }, { passive: false });
 
   if (document.documentElement) {
     var defaultThemeMode = "system";
-
     var hasKTName = document.body.hasAttribute("data-kt-name");
     var lsKey = "kt_" + (hasKTName ? name + "_" : "") + "theme_mode_value";
     var themeMode = localStorage.getItem(lsKey);

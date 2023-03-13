@@ -14,7 +14,7 @@ export const DefaultLayoutConfig: ILayout = {
     display: true,
   },
   header: {
-    display: true, // Set true|false to show or hide Header
+    display: false, // Set true|false to show or hide Header
     width: 'fluid', // Set fixed|fluid to change width type
     left: 'menu',
     fixed: {
@@ -24,7 +24,7 @@ export const DefaultLayoutConfig: ILayout = {
     menuIcon: 'svg',
   },
   megaMenu: {
-    display: true, // Set true|false to show or hide Mega Menu
+    display: false, // Set true|false to show or hide Mega Menu
   },
   aside: {
     display: true,
@@ -41,11 +41,11 @@ export const DefaultLayoutConfig: ILayout = {
     layout: 'default',
   },
   toolbar: {
-    display: true, // Display toolbar
+    display: false, // Display toolbar
     width: 'fluid', // Set fixed|fluid to change width type,
     fixed: {
       desktop: true,
-      tabletAndMobileMode: true,
+      tabletAndMobileMode: false,
     },
     layout: 'toolbar1',
     layouts: {

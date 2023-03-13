@@ -8,7 +8,6 @@ export function AsideMenuMain() {
 
   return (
     <>
-      <AsideMenuItemWithSub to='' title='MAIN NAVIGATION' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen022.svg'>
         <AsideMenuItem to='register' icon='/media/icons/duotune/general/gen055.svg' title='Membership' />
         {/*<AsideMenuItem to='planning' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen014.svg' title='Calendar' />*/}
         <AsideMenuItem to='tee-sheet' fontIcon='bi-archive' icon='/media/icons/duotune/general/gen022.svg' title='Tee Sheet' />
@@ -18,7 +17,6 @@ export function AsideMenuMain() {
         {/*<AsideMenuItem to='partners' fontIcon='bi-archive' icon='/media/icons/duotune/technology/teh010.svg' title='Partners' />*/}
         {/*<AsideMenuItem to='card-management' fontIcon='bi-archive' icon='/media/icons/duotune/finance/fin002.svg' title='Card Management' />*/}
 
-      </AsideMenuItemWithSub>
       {/*<div className='menu-item'>*/}
       {/*  <div className='menu-content'>*/}
       {/*    <div className='separator mx-1 my-4'></div>*/}

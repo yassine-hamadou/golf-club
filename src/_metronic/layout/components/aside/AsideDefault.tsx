@@ -75,7 +75,7 @@ const AsideDefault: FC = () => {
       {/* begin::Aside menu */}
       <div
           className='aside-menu flex-column-fluid'
-          style={{marginTop: '45px'}}
+          // style={{marginTop: '45px'}}
       >
         <AsideMenu asideMenuCSSClasses={classes.asideMenu} />
       </div>
