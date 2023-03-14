@@ -420,11 +420,11 @@ const teeSlot = [
                 title='Book tee time'
                 onFinish={onFinish}
               >
-                <Form.Item name="hostMembership" label="Host Membership" rules={[{ required: true, message: 'Missing Host Membership' }]}>
+                <Form.Item name="hostMembership" label="Player 1" rules={[{ required: true, message: 'Missing Host Membership' }]}>
                   <Select options={memberships} onChange={(value) => handleChange(value)} placeholder={"Select"}/>
                 </Form.Item>
                 {hostMembership === 'member' ? (
-                  <Form.Item name="host" label="Host" rules={[{ required: true, message: 'Missing Host' }]}>
+                  <Form.Item name="host" label="Name" rules={[{ required: true, message: 'Missing Host' }]}>
                     <Select placeholder='Select Host'>
                       {members.map((member: any) => (
                         <Option key={member.player} value={member.player}>
@@ -434,7 +434,7 @@ const teeSlot = [
                     </Select>
                   </Form.Item>
                 ) : hostMembership === 'non-member' ? (
-                  <> <Form.Item name='enteredHost' label='Host'>
+                  <> <Form.Item name='enteredHost' label='Name'>
                     <Input
                       placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
@@ -451,11 +451,11 @@ const teeSlot = [
                 ) : null}
 
 
-                <Form.Item name="player2Membership" label="Player2 Membership" rules={[{ required: true, message: 'Missing player2 Membership' }]}>
+                <Form.Item name="player2Membership" label="Player 2" rules={[{ required: true, message: 'Missing player2 Membership' }]}>
                   <Select options={memberships} onChange={(value) => handlePlayer2HostChange(value)} placeholder={"Select"}/>
                 </Form.Item>
                 {player2Membership === 'member' ? (
-                  <Form.Item name="player2" label="Player 2" rules={[{ required: true, message: 'Missing player2' }]}>
+                  <Form.Item name="player2" label="Name" rules={[{ required: true, message: 'Missing player2' }]}>
                     <Select placeholder='Select Player2'>
                       {members.map((member: any) => (
                         <Option key={member.player} value={member.player}>
@@ -466,7 +466,7 @@ const teeSlot = [
                   </Form.Item>
                 ) : player2Membership === 'non-member' ? (
                   <>
-                  <Form.Item name='enteredPlayer2' label='Player 2'>
+                  <Form.Item name='enteredPlayer2' label='Name'>
                     <Input
                       placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
@@ -483,11 +483,11 @@ const teeSlot = [
                 ) : null}
 
 
-                <Form.Item name="player3Membership" label="Player3 Membership" rules={[{ required: true, message: 'Missing player3 Membership' }]}>
+                <Form.Item name="player3Membership" label="Player 3" rules={[{ required: true, message: 'Missing player3 Membership' }]}>
                   <Select options={memberships} onChange={(value) => handlePlayer3HostChange(value)} placeholder={"Select"}/>
                 </Form.Item>
                 {player3Membership === 'member' ? (
-                  <Form.Item name="player3" label="Player 3" rules={[{ required: true, message: 'Missing player3' }]}>
+                  <Form.Item name="player3" label="Name" rules={[{ required: true, message: 'Missing player3' }]}>
                     <Select placeholder='Select Player3'>
                       {members.map((member: any) => (
                         <Option key={member.player} value={member.player}>
@@ -498,7 +498,7 @@ const teeSlot = [
                   </Form.Item>
                 ) : player3Membership === 'non-member' ? (
                   <>
-                  <Form.Item name='enteredPlayer3' label='Player 3'>
+                  <Form.Item name='enteredPlayer3' label='Name'>
                     <Input
                       placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
@@ -515,11 +515,11 @@ const teeSlot = [
                 ) : null}
 
 
-                <Form.Item name="player4Membership" label="Player4 Membership" rules={[{ required: true, message: 'Missing player4 Membership' }]}>
+                <Form.Item name="player4Membership" label="Player 4" rules={[{ required: true, message: 'Missing player4 Membership' }]}>
                   <Select options={memberships} onChange={(value) => handlePlayer4HostChange(value)} placeholder={"Select"}/>
                 </Form.Item>
                 {player4Membership === 'member' ? (
-                  <Form.Item name="player4" label="Player 4" rules={[{ required: true, message: 'Missing player4' }]}>
+                  <Form.Item name="player4" label="Name" rules={[{ required: true, message: 'Missing player4' }]}>
                     <Select placeholder='Select Player4'>
                       {members.map((member: any) => (
                         <Option key={member.player} value={member.player}>
@@ -530,7 +530,7 @@ const teeSlot = [
                   </Form.Item>
                 ) : player4Membership === 'non-member' ? (
                   <>
-                  <Form.Item name='enteredPlayer4' label='Player 4'>
+                  <Form.Item name='enteredPlayer4' label='Name'>
                     <Input
                       placeholder="Name"
                       prefix={<UserOutlined className="site-form-item-icon" />}
@@ -543,8 +543,18 @@ const teeSlot = [
                         prefix={<MailOutlined className="site-form-item-icon" />}
                       />
                     </Form.Item>
+
                     </>
                 ) : null}
+                {/*<Form.Item name="caddy" label="Caddy" rules={[{ required: true, message: 'Missing player4' }]}>*/}
+                {/*  <Select placeholder='Select Caddy'>*/}
+                {/*    {members.map((member: any) => (*/}
+                {/*      <Option key={member.player} value={member.player}>*/}
+                {/*        {member.name}*/}
+                {/*      </Option>*/}
+                {/*    ))}*/}
+                {/*  </Select>*/}
+                {/*</Form.Item>*/}
               </Form>
             </Modal>
           </Col>
