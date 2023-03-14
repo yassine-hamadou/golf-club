@@ -51,7 +51,7 @@ const Calendar = () => {
       <table className='custom-event-editor' style={{width: '100%'}} cellPadding={5}>
         <tbody>
           <tr>
-            <td className='e-textlabel'>Game</td>
+            <td className='e-textla bel'>Game</td>
             <td colSpan={4}>
               <DropDownListComponent
                 id='Summary'
@@ -120,13 +120,56 @@ const Calendar = () => {
               width='100%'
               height='650px'
               ref={t => scheduleObj = t}
-              // eventSettings={{ dataSource: data }}
+              eventSettings={{ dataSource: [
+                {
+                    Id: 1,
+                    Subject: 'Game 1',
+                    StartTime: new Date(2022, 0, 10, 9, 0),
+                    EndTime: new Date(2023, 0, 10, 11, 30),
+
+                },
+                {
+                    Id: 2,
+                    Subject: 'Game 2',
+                    StartTime: new Date(2022, 0, 11, 10, 0),
+                    EndTime: new Date(2023, 0, 11, 12, 30),
+
+                },
+                {
+                    Id: 3,
+                    Subject: 'Game 3',
+                    StartTime: new Date(2022, 0, 12, 11, 0),
+                    EndTime: new Date(2023, 0, 12, 13, 30),
+
+                },
+                  {
+                    Id: 4,
+                    Subject: 'Game 1',
+                    StartTime: new Date(2023, 0, 12, 9, 0),
+                    EndTime: new Date(2023, 0, 20, 11, 30),
+                  },
+                  {
+                    Id: 5,
+                    Subject: 'Game 2',
+                    StartTime: new Date(2023, 0, 11, 10, 0),
+                    EndTime: new Date(2023, 0, 11, 12, 30),
+
+                  },
+                  {
+                    Id: 6,
+                    Subject: 'Game 3',
+                    StartTime: new Date(2023, 0, 12, 11, 0),
+                    EndTime: new Date(2023, 2, 12, 13, 30),
+
+                  }
+                ] }}
               // eventRendered={onEventRendered.bind(this)}
-              currentView='Week'
+              currentView='Month'
+              readonly={true}
               id='schedule'
-              editorTemplate={editorTemplate}
+              // editorTemplate={editorTemplate}
           >
-          <Inject services={[Day, Week, WorkWeek, Month, Agenda, Resize, DragAndDrop]} />
+          <Inject services={[Month, Agenda]} />
         </ScheduleComponent>
         </div>
       </div>
