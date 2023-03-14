@@ -83,8 +83,9 @@ const Calendar = () => {
                 className='e-field'
                 // dataSource={gameType?.data?.data}
                 dataSource={[
-                  {text: 'Tournament', value: 'Tournament'},
-                  {text: 'Training', value: 'Training'},
+                  {text: 'Match Play', value: 'Tournament'},
+                  {text: 'Stableford', value: 'Training'},
+                  {text: 'Medal', value: 'medal'},
                 ]}
                 ref={(scope) => (dropDownListObject = scope)}
                 style={{width: '100%'}}
