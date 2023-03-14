@@ -420,7 +420,7 @@ const teeSlot = [
                 title='Book tee time'
                 onFinish={onFinish}
               >
-                <Form.Item name="hostMembership" label="Host" rules={[{ required: true, message: 'Missing Host Membership' }]}>
+                <Form.Item name="hostMembership" label="Player 1" rules={[{ required: true, message: 'Missing Host Membership' }]}>
                   <Select options={memberships} onChange={(value) => handleChange(value)} placeholder={"Select"}/>
                 </Form.Item>
                 {hostMembership === 'member' ? (
