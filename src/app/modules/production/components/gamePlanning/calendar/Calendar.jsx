@@ -1,20 +1,15 @@
 import {L10n} from '@syncfusion/ej2-base'
 import {
   ScheduleComponent,
-  Day,
-  Week,
   Month,
   Agenda,
   Inject,
-  DragAndDrop,
-  Resize,
-  WorkWeek,
   ViewsDirective,
   ViewDirective,
 } from '@syncfusion/ej2-react-schedule'
 import {DateTimePickerComponent} from '@syncfusion/ej2-react-calendars'
 import {DropDownListComponent} from '@syncfusion/ej2-react-dropdowns'
-import {useMutation, useQuery, useQueryClient} from 'react-query'
+import {useQueryClient} from 'react-query'
 import '@syncfusion/ej2-base/styles/material.css'
 import '@syncfusion/ej2-calendars/styles/material.css'
 import '@syncfusion/ej2-dropdowns/styles/material.css'
@@ -26,7 +21,6 @@ import '@syncfusion/ej2-splitbuttons/styles/material.css'
 import '@syncfusion/ej2-react-schedule/styles/material.css'
 import '@syncfusion/ej2-buttons/styles/material.css'
 import {message} from 'antd'
-import {InputBase} from '@mui/material'
 
 /**
  *  Schedule editor custom fields sample
