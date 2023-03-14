@@ -27,7 +27,7 @@ const DashboardPage: FC = () => (
                               <div className='d-flex flex-column'>
                                   <div className='d-flex align-items-center mb-2'>
                                       <a href='#' className='text-gray-800 text-hover-primary fs-2 fw-bolder me-1'>
-                                          Yassine Hamadou Mounkaila
+                                          Koffi Ousmane
                                           <span className={'badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2'}>ID: AGC007</span>
                                       </a>
                                       {/*<a href='#'>*/}
@@ -67,7 +67,7 @@ const DashboardPage: FC = () => (
                                             path='/media/icons/duotune/communication/com011.svg'
                                             className='svg-icon-4 me-1'
                                           />
-                                          yassinehamadou1@gmail.com
+                                          koffious1@gmail.com
                                       </a>
                                   </div>
                               </div>
