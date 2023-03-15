@@ -1,4 +1,4 @@
-import {Button, Input, Space, Table} from 'antd'
+import {Button, Dropdown, Input, MenuProps, Space, Table} from 'antd'
 import {useState} from 'react'
 import {Link, Route, Routes} from 'react-router-dom'
 import {KTCard, KTCardBody, KTSVG} from '../../../../../_metronic/helpers'
@@ -18,6 +18,24 @@ const Register = () => {
   // const [searchText, setSearchText] = useState('')
   // let [filteredData] = useState([])
 console.log("Members", members)
+  const onMenuClick: MenuProps['onClick'] = (e) => {
+    console.log('click', e);
+  };
+
+  const items = [
+    {
+      key: '1',
+      label: 'Activate',
+    },
+    {
+      key: '2',
+      label: 'Deactivate',
+    },
+    {
+      key: '3',
+      label: 'Suspend',
+    },
+  ];
   const columns: any = [
     {
       title: 'Picture',
@@ -86,12 +104,17 @@ console.log("Members", members)
       title: 'Action',
       render: () => (
         <>
-          <button type='button' className='btn btn-secondary me-3'>
-            Suspend
-          </button>
-          <button type='button' className='btn btn-danger me-3'>
-            Deactivate
-          </button>
+          {/*reset button style*/}
+          <Dropdown.Button menu={{ items, onClick: onMenuClick }}>Actions</Dropdown.Button>
+          {/*<Button className='bg-success me-3'>*/}
+          {/*  Activate*/}
+          {/*  </Button>*/}
+          {/*<Button className='bg-primary me-3'>*/}
+          {/*  Suspend*/}
+          {/*</Button>*/}
+          {/*<Button className='bg-danger me-3'>*/}
+          {/*  Deactivate*/}
+          {/*</Button>*/}
         </>
       ),
     },
