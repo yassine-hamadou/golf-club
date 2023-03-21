@@ -21,7 +21,7 @@ import '@syncfusion/ej2-splitbuttons/styles/material.css'
 import '@syncfusion/ej2-react-schedule/styles/material.css'
 import '@syncfusion/ej2-buttons/styles/material.css'
 import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
-import {message} from 'antd'
+import {Alert, message, Space, Spin} from 'antd'
 import axios from "axios";
 import {API_URL} from "../../../../../urls";
 
@@ -225,8 +225,8 @@ const  onActionBegin = (args) => {
     args.cancel = true
     scheduleObj?.openEditor(args, 'Add', false)
   }
-  console.log('calendarData', calendarData)
-  return (
+
+  return calendarData !== undefined ? (
     <div className='schedule-control-section'>
       <div className='col-lg-12 control-section'>
         <div className='control-wrapper'>
@@ -235,7 +235,7 @@ const  onActionBegin = (args) => {
             height='650px'
             ref={(t) => (scheduleObj = t)}
             eventSettings={{
-              dataSource: calendarData && calendarData?.data,
+              dataSource: calendarData.data,
               fields: {
                 id: 'id',
                 subject: {name: 'subject'},
@@ -243,14 +243,14 @@ const  onActionBegin = (args) => {
                 endTime: {name: 'endTime'},
                 description: {name: 'description'},
                 gameTypeId: {name: 'gameTypeId'}
-              }
+              },
             }}
             currentView='Month'
             id='schedule'
             actionBegin={onActionBegin}
             editorTemplate={editorTemplate}
             cellClick={onCellClick} //to open the editor on empty cell click
-              // Refreshes the Schedule events after the data source is updated.
+            loading={true}
           >
             <ViewsDirective>
               <ViewDirective option='Month'></ViewDirective>
@@ -260,6 +260,11 @@ const  onActionBegin = (args) => {
         </div>
       </div>
     </div>
+  ) : (
+      <Space size="middle">
+        <Spin size="large" />
+      </Space>
   )
 }
 export {Calendar}
+
