@@ -35,7 +35,7 @@ const ProductionPage: React.FC = () => {
         path='/planning/*'
         element={
           <>
-            <PageTitle breadcrumbs={accountBreadCrumbs}>Planning</PageTitle>
+            <PageTitle breadcrumbs={accountBreadCrumbs}>Calendar</PageTitle>
             <GamePlanning />
           </>
         }

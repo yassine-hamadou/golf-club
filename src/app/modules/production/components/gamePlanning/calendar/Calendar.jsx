@@ -9,7 +9,7 @@ import {
 } from '@syncfusion/ej2-react-schedule'
 import {DateTimePickerComponent} from '@syncfusion/ej2-react-calendars'
 import {DropDownListComponent} from '@syncfusion/ej2-react-dropdowns'
-import {useQueryClient} from 'react-query'
+import {useMutation, useQuery, useQueryClient} from 'react-query'
 import '@syncfusion/ej2-base/styles/material.css'
 import '@syncfusion/ej2-calendars/styles/material.css'
 import '@syncfusion/ej2-dropdowns/styles/material.css'
@@ -20,7 +20,10 @@ import '@syncfusion/ej2-popups/styles/material.css'
 import '@syncfusion/ej2-splitbuttons/styles/material.css'
 import '@syncfusion/ej2-react-schedule/styles/material.css'
 import '@syncfusion/ej2-buttons/styles/material.css'
+import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
 import {message} from 'antd'
+import axios from "axios";
+import {API_URL} from "../../../../../urls";
 
 /**
  *  Schedule editor custom fields sample
@@ -37,26 +40,104 @@ L10n.load({
     },
   },
 })
-const localData = [
-  {
-    Id: 1,
-    Subject: 'Marco Polo Tornament',
-    StartTime: new Date(2021, 0, 10, 9, 0),
-    EndTime: new Date(2021, 0, 10, 11, 30),
-    IsAllDay: false,
-    Description: 'Tornament',
-    Location: 'Location 1',
-  },
-]
+
 const Calendar = () => {
   let scheduleObj
-  //Access the same location query from cycle details component
-  const locationQuery = useQueryClient().getQueryData('Locations')
+  let queryClient = useQueryClient()
 
+    //get game types
+  const {data: gameType} = useQuery('gameType', () => {
+    return axios.get(`${API_URL}/gameTypes`).then((res) => res.data)
+  })
+
+  //get game schedule
+  const {data: calendarData} = useQuery('calendarData', () => {
+    return axios.get(`${API_URL}/gameSchedules`)
+  })
+
+    //post game schedule
+    const postGame = (gameSchedule) => {
+        return axios.post(`${API_URL}/gameSchedules`, gameSchedule)
+    }
+
+  //add game schedule
+  const {mutate: mutateGameSchedule} = useMutation('addGame', postGame,{
+    onSuccess: () => {
+        message.success('Game Scheduled').then(r => r)
+        queryClient.invalidateQueries('calendarData').then(r => r)
+    },
+    onError: () => {
+        message.error("Err").then(r => r)
+    }
+  })
+
+  //delete game schedule
+  const {mutate: deleteGameSchedule} = useMutation((gameSchedule) =>
+      axios.delete(`${API_URL}/gameSchedules/${gameSchedule.id}`), {
+      onSuccess: () => {
+          message.success('Game Deleted').then(r => r)
+          queryClient.invalidateQueries('calendarData').then(r => r)
+      },
+      onError: (error) => {
+          message.error(error.message).then(r => r)
+          message.error("Error deleting the schedule").then(r => r)
+      }
+  })
+
+    //update game schedule
+    const {mutate: updateGameSchedule} = useMutation((gameSchedule) =>
+        axios.put(`${API_URL}/gameSchedules/${gameSchedule.id}`, gameSchedule), {
+        onSuccess: () => {
+            message.success('Game Updated').then(r => r)
+            queryClient.invalidateQueries('calendarData').then(r => r)
+        },
+        onError: (error) => {
+            message.error(error.message).then(r => r)
+        }})
+
+
+const  onActionBegin = (args) => {
+    console.log('first args', args)
+  // args.cancel = true
+  console.log('args', args)
+  if (args.data !== undefined) {
+    const data = args.data[0] ? args.data[0] : args.data
+
+    if (args.requestType === 'eventCreate') {
+      const gameSchedule = {
+        subject: data.Subject,
+        startTime: data.StartTime,
+        endTime: data.EndTime,
+        description: data.Description,
+        gameTypeId: data.gameType,
+      }
+
+      console.log('gameSchedule', gameSchedule)
+      mutateGameSchedule(gameSchedule)
+    }
+
+    if (args.requestType === 'eventChange') {
+      console.log('gameSchedule Edit', args)
+      const gameSchedule = {
+        id: data.id,
+        subject: data.Subject,
+        startTime: data.StartTime,
+        endTime: data.EndTime,
+        description: data.Description,
+        gameTypeId: data.gameType,
+      }
+      updateGameSchedule(gameSchedule)
+    }
+
+    if (args.requestType === 'eventRemove') {
+      deleteGameSchedule(data)
+    }
+  }
+}
+  console.log('gameType', gameType)
   let dropDownListObject //to access the dropdownlist component
   function editorTemplate(props) {
-    console.log('props', props)
-    function getFleetModel(e) {}
+    console.log('props in editor ', props)
     return props !== undefined ? (
       <table className='custom-event-editor' style={{width: '100%'}} cellPadding={5}>
         <tbody>
@@ -66,10 +147,12 @@ const Calendar = () => {
               <input
                 id='title'
                 placeholder='Title'
+                data-name='Subject'
                 name='Subject'
                 className='e-field e-input'
                 type='text'
                 style={{width: '100%'}}
+                defaultValue={props && props.subject ? props.subject : ''}
               />
             </td>
           </tr>
@@ -81,16 +164,25 @@ const Calendar = () => {
                 placeholder='Choose Type of Game'
                 data-name='gameType'
                 className='e-field'
-                // dataSource={gameType?.data?.data}
-                dataSource={[
-                  {text: 'Match Play', value: 'Tournament'},
-                  {text: 'Stableford', value: 'Training'},
-                  {text: 'Medal', value: 'medal'},
-                ]}
-                ref={(scope) => (dropDownListObject = scope)}
+                dataSource={gameType}
+                fields={{text: 'name', value: 'id'}}
+                value={props && props.gameTypeId ? props.gameTypeId : null}
                 style={{width: '100%'}}
-                fields={{text: 'text', value: 'value'}}
-                value={props?.serviceTypeId}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td className='e-textlabel'>Description</td>
+            <td colSpan={4}>
+              {/* Render Multiline TextBox */}
+              <TextBoxComponent
+                  id='Description'
+                  data-name='Description'
+                  name='Description'
+                  className='e-field e-input'
+                  floatLabelType={'Auto'}
+                  placeholder="Enter a Description"
+                  value={props && props.description ? props.description : ''}
               />
             </td>
           </tr>
@@ -100,8 +192,9 @@ const Calendar = () => {
               <DateTimePickerComponent
                 id='StartTime'
                 format='dd/MM/yy hh:mm a'
-                data-name='timeStart'
-                value={props && props.timeStart ? new Date(props?.timeStart) : props?.StartTime}
+                data-name='StartTime'
+                name={'StartTime'}
+                value={props && props.startTime ? props.startTime : props?.startTime}
                 className='e-field'
               ></DateTimePickerComponent>
             </td>
@@ -112,8 +205,9 @@ const Calendar = () => {
               <DateTimePickerComponent
                 id='EndTime'
                 format='dd/MM/yy hh:mm a'
-                data-name='timeEnd'
-                value={props && props.timeEnd ? new Date(props?.timeEnd) : props?.EndTime}
+                data-name='EndTime'
+                name={'EndTime'}
+                value={props && props.endTime ? new Date(props?.endTime) : props?.endTime}
                 className='e-field'
               ></DateTimePickerComponent>
             </td>
@@ -126,10 +220,12 @@ const Calendar = () => {
   }
 
   let onCellClick = (args) => {
-    scheduleObj.openEditor(args, 'Add')
-    scheduleObj.quickPopup.cancel()
-    //quick info popup is not opening on cell click
+    // scheduleObj?.openEditor(args, 'Add', false) //open the editor on empty cell click
+    //do not open the quick info popup on cell click
+    args.cancel = true
+    scheduleObj?.openEditor(args, 'Add', false)
   }
+  console.log('calendarData', calendarData)
   return (
     <div className='schedule-control-section'>
       <div className='col-lg-12 control-section'>
@@ -138,12 +234,23 @@ const Calendar = () => {
             width='100%'
             height='650px'
             ref={(t) => (scheduleObj = t)}
-            // eventSettings={{ dataSource: data }}
-            // eventRendered={onEventRendered.bind(this)}
+            eventSettings={{
+              dataSource: calendarData && calendarData?.data,
+              fields: {
+                id: 'id',
+                subject: {name: 'subject'},
+                startTime: {name: 'startTime'},
+                endTime: {name: 'endTime'},
+                description: {name: 'description'},
+                gameTypeId: {name: 'gameTypeId'}
+              }
+            }}
             currentView='Month'
             id='schedule'
+            actionBegin={onActionBegin}
             editorTemplate={editorTemplate}
-            cellClick={onCellClick}
+            cellClick={onCellClick} //to open the editor on empty cell click
+              // Refreshes the Schedule events after the data source is updated.
           >
             <ViewsDirective>
               <ViewDirective option='Month'></ViewDirective>

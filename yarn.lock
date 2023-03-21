@@ -2206,12 +2206,26 @@
   dependencies:
     "@syncfusion/ej2-icons" "~20.4.48"
 
+"@syncfusion/ej2-base@~20.4.51":
+  version "20.4.51"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-base/-/ej2-base-20.4.51.tgz#93a551c1ee092815233d4fa06200318ffd9e9fbc"
+  integrity sha512-nVyqylTXFuEMZARmqAtGQVadqDwwqgKSC4r1IYwSEc8FoEa2mBxlhQWPjBN7SucwAGAh9aQvnkqIJjSCy8jZiA==
+  dependencies:
+    "@syncfusion/ej2-icons" "~20.4.48"
+
 "@syncfusion/ej2-buttons@20.4.48", "@syncfusion/ej2-buttons@~20.4.48":
   version "20.4.48"
   resolved "https://registry.npmjs.org/@syncfusion/ej2-buttons/-/ej2-buttons-20.4.48.tgz"
   integrity sha512-9XJ6LZ+wmYhEeJfMNXBqSHn1gQFUe65I0hzsQsGRnduiFqxr9hRej/sJKFXckIVnwUlv06K6ZnNmdnvbxG0Zyg==
   dependencies:
     "@syncfusion/ej2-base" "~20.4.48"
+
+"@syncfusion/ej2-buttons@~20.4.53":
+  version "20.4.53"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-buttons/-/ej2-buttons-20.4.53.tgz#e7266b71cdac5674ded1b306b0ecf9ecf6acf72b"
+  integrity sha512-o3/Blcs9VisB7oAoLd6x2jFGIHGY7COzMpEj9jWOdHZMtxj9tCqeqgT8A2NHRzHFFsJSAA/G3+lZs8Hh2SZNOw==
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.51"
 
 "@syncfusion/ej2-calendars@20.4.48", "@syncfusion/ej2-calendars@~20.4.48":
   version "20.4.48"
@@ -2268,6 +2282,16 @@
   resolved "https://registry.npmjs.org/@syncfusion/ej2-icons/-/ej2-icons-20.4.48.tgz"
   integrity sha512-uPV4RzwxQ3cj6Zx4h6VvsEmrCGL9ssKG62Pa12k1fow915QSSQkJ0WZ6dBHIdXbk5nSDp2J2wDlV+5h3Ici+sg==
 
+"@syncfusion/ej2-inputs@20.4.54":
+  version "20.4.54"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-inputs/-/ej2-inputs-20.4.54.tgz#21f899f4fcf7d8806ef901e4c064ebde5d6e326c"
+  integrity sha512-xmNc4uIIfm/5nZybat4dniqYzej9QYP7YBT3LoQyITMko8p3D5+iNMg1LjK7d/KhCYK85phkfjp3WzdFzmtzhw==
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.51"
+    "@syncfusion/ej2-buttons" "~20.4.53"
+    "@syncfusion/ej2-popups" "~20.4.53"
+    "@syncfusion/ej2-splitbuttons" "~20.4.50"
+
 "@syncfusion/ej2-inputs@~20.4.48":
   version "20.4.48"
   resolved "https://registry.npmjs.org/@syncfusion/ej2-inputs/-/ej2-inputs-20.4.48.tgz"
@@ -2307,12 +2331,27 @@
     "@syncfusion/ej2-base" "~20.4.48"
     "@syncfusion/ej2-buttons" "~20.4.48"
 
+"@syncfusion/ej2-popups@~20.4.49", "@syncfusion/ej2-popups@~20.4.53":
+  version "20.4.53"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-popups/-/ej2-popups-20.4.53.tgz#2909537789d993ff2748d9e1d8f04ab290e62ded"
+  integrity sha512-EtRwPk8e+rDpdUxoHQtP43JMT67130bM58GK6bby6amrMBdcTMtQ6Iuv2sXBpdP+hp/0QvfNM49xjaEJD4JnsQ==
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.51"
+    "@syncfusion/ej2-buttons" "~20.4.53"
+
 "@syncfusion/ej2-react-base@~20.4.48":
   version "20.4.48"
   resolved "https://registry.npmjs.org/@syncfusion/ej2-react-base/-/ej2-react-base-20.4.48.tgz"
   integrity sha512-hm12BxvIFkdArD/v7w+yeymY4tQl/8lGQcXp3cgja/RLSjt5FNTVYS3mRRmy++HIocqdiYGhTXnEW8V4PLy+QQ==
   dependencies:
     "@syncfusion/ej2-base" "~20.4.48"
+
+"@syncfusion/ej2-react-base@~20.4.54":
+  version "20.4.54"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-react-base/-/ej2-react-base-20.4.54.tgz#03c349da9369719e8de0f0cdf401b5f7b4b174a5"
+  integrity sha512-sgJJLm6W1JFfrlmka1OC0PCwNfSLHWK28vcuDplxKYU6SKnZ7TLcxFNxA5MoIvaJLVWsBjYKOUfJH/3AuADoGg==
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.51"
 
 "@syncfusion/ej2-react-buttons@^20.3.57":
   version "20.4.48"
@@ -2340,6 +2379,15 @@
     "@syncfusion/ej2-base" "~20.4.48"
     "@syncfusion/ej2-dropdowns" "20.4.48"
     "@syncfusion/ej2-react-base" "~20.4.48"
+
+"@syncfusion/ej2-react-inputs@^20.4.54":
+  version "20.4.54"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-react-inputs/-/ej2-react-inputs-20.4.54.tgz#a0b03f2c44b712242df82ab2a46179dbb09add8e"
+  integrity sha512-et+zmSFUBfFLVF08xbf9x4qrsaiMZO5/yg7vjfryKJJlKFqXlB+Hut6Y88K/sVJ4SL80F1cfDyMfyS1rUqetpA==
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.51"
+    "@syncfusion/ej2-inputs" "20.4.54"
+    "@syncfusion/ej2-react-base" "~20.4.54"
 
 "@syncfusion/ej2-react-schedule@^20.3.49":
   version "20.4.48"
@@ -2373,6 +2421,14 @@
   dependencies:
     "@syncfusion/ej2-base" "~20.4.48"
     "@syncfusion/ej2-popups" "~20.4.48"
+
+"@syncfusion/ej2-splitbuttons@~20.4.50":
+  version "20.4.50"
+  resolved "https://registry.yarnpkg.com/@syncfusion/ej2-splitbuttons/-/ej2-splitbuttons-20.4.50.tgz#41cf69e350bb89d7855aa039ce881d42495b6392"
+  integrity sha512-Av/d8K1tuRs/gLnWKVfyLZ7iLhW8DyaqBNdpdYWsjNBuoVpRZdYddOSqPOeOzq5Upd6DzCkGpUfT3WDpAoNH7w==
+  dependencies:
+    "@syncfusion/ej2-base" "~20.4.48"
+    "@syncfusion/ej2-popups" "~20.4.49"
 
 "@testing-library/dom@^8.5.0":
   version "8.20.0"
