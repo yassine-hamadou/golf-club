@@ -122,6 +122,7 @@ const Calendar = () => {
                     startTime: {name: 'startTime'},
                     endTime: {name: 'endTime'},
                     description: {name: 'description'},
+                    gameTypeId: {name: 'gameTypeId'},
                 }
               }}
               currentView='Month'
