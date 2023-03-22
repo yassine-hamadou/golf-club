@@ -1,0 +1,250 @@
+.tee-container {
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+  max-width: 30rem;
+
+  input {
+    box-sizing: border-box;
+    font-family: inherit;
+    box-shadow: 0 0 0 transparent;
+    border-radius: 4px;
+    border: 1px solid #8c8f94;
+    background-color: #fff;
+    color: #2c3338;
+  }
+
+  input[readonly] {
+    background-color: #f0f0f1;
+  }
+}
+
+.scorecard {
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0.5rem 0;
+    align-items: center;
+
+    .btn {
+      margin-left: auto;
+    }
+    .btn ~ .btn {
+      margin-left: 10px;
+    }
+
+    .golfer {
+      min-width: 100%;
+    }
+  }
+
+  .hole {
+    >div {
+      display: flex;
+      width: 100%;
+    }
+
+    .label-wrap {
+      text-align: left;
+
+      .label {
+        padding-right: 8px;
+      }
+    }
+
+    >div>div {
+      min-width: 25%;
+      min-height: 26px;
+      line-height: 26px;
+      white-space: nowrap;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+      display: inline-block;
+      padding: 0 2px;
+      text-align: center;
+      width: 24px;
+      font-size: inherit;
+      line-height: 1.5;
+      min-height: 24px;
+      text-transform: uppercase;
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 90%;
+    padding: 0.5rem;
+
+    >div {
+      padding: 0.5rem;
+    }
+  }
+}
+
+.edit {
+
+  .tee-container {
+    max-width: 700px;
+  }
+
+  .scorecard {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: none;
+    width: 100%;
+
+    .adv-toggle {
+      cursor: pointer;
+    }
+
+    .hole {
+      min-width: 8%;
+      text-align: center;
+
+      &.labels {
+        min-width: 14%;
+        flex-grow: 2;
+        display: flex;
+
+        >div {
+          width: 60%;
+        }
+      }
+
+      &.sum {
+        min-width: 26%;
+        flex-grow: 3;
+        display: flex;
+
+        >div {
+          width: 33%;
+        }
+      }
+
+      >div {
+        flex-direction: column;
+      }
+
+      .adv.hide {
+        display: none;
+      }
+
+      &.sum~.hole {
+        margin-top: 1.5rem;
+      }
+    }
+
+    .footer {
+      justify-content: flex-start;
+      align-items: flex-end;
+      padding-left: 0;
+    }
+
+    .info {
+      margin-left: auto;
+
+      >div {
+        display: inline-block;
+        padding: 0.5rem;
+      }
+    }
+
+    .date-field {
+      padding-left: 0;
+    }
+
+    .footer label {
+      display: block;
+    }
+
+    .notes {
+      width: 100%;
+
+      >textarea {
+        width: 100%;
+      }
+    }
+
+    .submit {
+      padding-right: 1rem;
+      padding-left: 2rem;
+    }
+
+    .footer>div:last-child {
+      flex: 0 0 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-left: 0;
+    }
+  }
+}
+
+/* 480 @16 */
+@media screen and (min-width: 30em) {
+  .course-modal {
+    font-size: 16px;
+  }
+}
+
+/* 768 @16 */
+@media screen and (min-width: 48em) {
+  .tee-container {
+    max-width: 40rem;
+  }
+
+  .scorecard {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: none;
+    width: 100%;
+
+    .hole {
+      min-width: 9%;
+      text-align: center;
+
+      &.sum {
+        min-width: 26%;
+        flex-grow: 3;
+        display: flex;
+
+        >div {
+          width: 33%;
+        }
+
+        ~.hole {
+          margin-top: 1.5rem;
+        }
+      }
+
+      >div {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+/* 1024 @16 */
+@media screen and (min-width: 64em) {
+  .tee-container {
+    max-width: 64em;
+  }
+
+  .scorecard .hole {
+    display: flex;
+    align-items: flex-start;
+    min-width: 4.5%;
+
+    &.sum {
+      min-width: 10%;
+
+      ~.hole {
+        margin-top: auto;
+      }
+    }
+  }
+}

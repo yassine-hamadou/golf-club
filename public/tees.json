@@ -1,0 +1,361 @@
+{
+  "id": "536",
+  "property_id": "63",
+  "name": "St. Andrews - Old Course",
+  "location": "St. Andrews, Scotland",
+  "description": "Daily-Fee",
+  "url": "https://www.standrews.com/play/courses/old-course",
+  "tees": [
+    {
+      "tee_id": "536",
+      "tee": "White",
+      "gender": "M",
+      "rating": "72.1",
+      "slope": "129",
+      "holes": [
+        {
+          "number": "1",
+          "par": "4",
+          "yards": "376",
+          "handicap": "10"
+        },
+        {
+          "number": "2",
+          "par": "4",
+          "yards": "411",
+          "handicap": "6"
+        },
+        {
+          "number": "3",
+          "par": "4",
+          "yards": "370",
+          "handicap": "16"
+        },
+        {
+          "number": "4",
+          "par": "4",
+          "yards": "419",
+          "handicap": "8"
+        },
+        {
+          "number": "5",
+          "par": "5",
+          "yards": "514",
+          "handicap": "2"
+        },
+        {
+          "number": "6",
+          "par": "4",
+          "yards": "374",
+          "handicap": "12"
+        },
+        {
+          "number": "7",
+          "par": "4",
+          "yards": "359",
+          "handicap": "4"
+        },
+        {
+          "number": "8",
+          "par": "3",
+          "yards": "166",
+          "handicap": "14"
+        },
+        {
+          "number": "9",
+          "par": "4",
+          "yards": "347",
+          "handicap": "18"
+        },
+        {
+          "number": "10",
+          "par": "4",
+          "yards": "340",
+          "handicap": "15"
+        },
+        {
+          "number": "11",
+          "par": "3",
+          "yards": "174",
+          "handicap": "7"
+        },
+        {
+          "number": "12",
+          "par": "4",
+          "yards": "316",
+          "handicap": "3"
+        },
+        {
+          "number": "13",
+          "par": "4",
+          "yards": "418",
+          "handicap": "11"
+        },
+        {
+          "number": "14",
+          "par": "5",
+          "yards": "530",
+          "handicap": "1"
+        },
+        {
+          "number": "15",
+          "par": "4",
+          "yards": "414",
+          "handicap": "9"
+        },
+        {
+          "number": "16",
+          "par": "4",
+          "yards": "381",
+          "handicap": "13"
+        },
+        {
+          "number": "17",
+          "par": "4",
+          "yards": "455",
+          "handicap": "5"
+        },
+        {
+          "number": "18",
+          "par": "4",
+          "yards": "357",
+          "handicap": "17"
+        }
+      ]
+    },
+    {
+      "tee_id": "537",
+      "tee": "Yellow",
+      "gender": "M",
+      "rating": "70.0",
+      "slope": "110",
+      "holes": [
+        {
+          "number": "1",
+          "par": "4",
+          "yards": "355",
+          "handicap": "10"
+        },
+        {
+          "number": "2",
+          "par": "4",
+          "yards": "395",
+          "handicap": "6"
+        },
+        {
+          "number": "3",
+          "par": "4",
+          "yards": "337",
+          "handicap": "16"
+        },
+        {
+          "number": "4",
+          "par": "4",
+          "yards": "411",
+          "handicap": "8"
+        },
+        {
+          "number": "5",
+          "par": "5",
+          "yards": "514",
+          "handicap": "2"
+        },
+        {
+          "number": "6",
+          "par": "4",
+          "yards": "360",
+          "handicap": "12"
+        },
+        {
+          "number": "7",
+          "par": "4",
+          "yards": "349",
+          "handicap": "4"
+        },
+        {
+          "number": "8",
+          "par": "3",
+          "yards": "154",
+          "handicap": "14"
+        },
+        {
+          "number": "9",
+          "par": "4",
+          "yards": "289",
+          "handicap": "18"
+        },
+        {
+          "number": "10",
+          "par": "4",
+          "yards": "311",
+          "handicap": "15"
+        },
+        {
+          "number": "11",
+          "par": "3",
+          "yards": "164",
+          "handicap": "7"
+        },
+        {
+          "number": "12",
+          "par": "4",
+          "yards": "304",
+          "handicap": "3"
+        },
+        {
+          "number": "13",
+          "par": "4",
+          "yards": "388",
+          "handicap": "11"
+        },
+        {
+          "number": "14",
+          "par": "5",
+          "yards": "523",
+          "handicap": "1"
+        },
+        {
+          "number": "15",
+          "par": "4",
+          "yards": "391",
+          "handicap": "9"
+        },
+        {
+          "number": "16",
+          "par": "4",
+          "yards": "345",
+          "handicap": "13"
+        },
+        {
+          "number": "17",
+          "par": "4",
+          "yards": "436",
+          "handicap": "5"
+        },
+        {
+          "number": "18",
+          "par": "4",
+          "yards": "351",
+          "handicap": "17"
+        }
+      ]
+    },
+    {
+      "tee_id": "538",
+      "tee": "Red",
+      "gender": "L",
+      "rating": "70.0",
+      "slope": "110",
+      "holes": [
+        {
+          "number": "1",
+          "par": "4",
+          "yards": "339",
+          "handicap": "10"
+        },
+        {
+          "number": "2",
+          "par": "4",
+          "yards": "375",
+          "handicap": "6"
+        },
+        {
+          "number": "3",
+          "par": "4",
+          "yards": "321",
+          "handicap": "16"
+        },
+        {
+          "number": "4",
+          "par": "4",
+          "yards": "401",
+          "handicap": "8"
+        },
+        {
+          "number": "5",
+          "par": "5",
+          "yards": "454",
+          "handicap": "2"
+        },
+        {
+          "number": "6",
+          "par": "4",
+          "yards": "325",
+          "handicap": "12"
+        },
+        {
+          "number": "7",
+          "par": "4",
+          "yards": "335",
+          "handicap": "4"
+        },
+        {
+          "number": "8",
+          "par": "3",
+          "yards": "145",
+          "handicap": "14"
+        },
+        {
+          "number": "9",
+          "par": "4",
+          "yards": "261",
+          "handicap": "18"
+        },
+        {
+          "number": "10",
+          "par": "4",
+          "yards": "296",
+          "handicap": "15"
+        },
+        {
+          "number": "11",
+          "par": "3",
+          "yards": "150",
+          "handicap": "7"
+        },
+        {
+          "number": "12",
+          "par": "4",
+          "yards": "304",
+          "handicap": "3"
+        },
+        {
+          "number": "13",
+          "par": "4",
+          "yards": "377",
+          "handicap": "11"
+        },
+        {
+          "number": "14",
+          "par": "5",
+          "yards": "487",
+          "handicap": "1"
+        },
+        {
+          "number": "15",
+          "par": "4",
+          "yards": "369",
+          "handicap": "9"
+        },
+        {
+          "number": "16",
+          "par": "4",
+          "yards": "325",
+          "handicap": "13"
+        },
+        {
+          "number": "17",
+          "par": "4",
+          "yards": "426",
+          "handicap": "5"
+        },
+        {
+          "number": "18",
+          "par": "4",
+          "yards": "342",
+          "handicap": "17"
+        }
+      ]
+    }
+  ]
+}
