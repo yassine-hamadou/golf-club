@@ -1,26 +1,20 @@
-let CACHE_NAME = 'egolf-cache-v1';
-const urlsToCache = [
-'/',
-'./index.html',
-];
+let CACHE_NAME = 'egolf-cache-v1'
+const urlsToCache = ['/', './index.html']
 
 // Install a service worker
 // eslint-disable-next-line no-restricted-globals
-self.addEventListener('install', function(event) {
-// Perform install steps
+self.addEventListener('install', function (event) {
+  // Perform install steps
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
-      })
-  );
-
+    caches.open(CACHE_NAME).then(function (cache) {
+      console.log('Opened cache')
+      return cache.addAll(urlsToCache)
+    })
+  )
 
   // eslint-disable-next-line no-restricted-globals
-  self.skipWaiting(); // Activate worker immediately
-
-});
+  self.skipWaiting() // Activate worker immediately
+})
 
 // eslint-disable-next-line no-restricted-globals
 // self.addEventListener('fetch', function(event) {

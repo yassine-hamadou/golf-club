@@ -183,13 +183,17 @@
   // Integration
   .app-sidebar {
     // Header
-    [data-kt-app-sidebar-fixed='true'][data-kt-app-header-fixed='true']:not([data-kt-app-sidebar-push-header='true'])
+    [data-kt-app-sidebar-fixed='true'][data-kt-app-header-fixed='true']:not(
+        [data-kt-app-sidebar-push-header='true']
+      )
       & {
       top: var(--kt-app-header-height);
     }
 
     // Toolbar
-    [data-kt-app-sidebar-fixed='true'][data-kt-app-header-fixed='true'][data-kt-app-toolbar-fixed='true']:not([data-kt-app-sidebar-push-toolbar='true'])
+    [data-kt-app-sidebar-fixed='true'][data-kt-app-header-fixed='true'][data-kt-app-toolbar-fixed='true']:not(
+        [data-kt-app-sidebar-push-toolbar='true']
+      )
       & {
       top: calc(var(--kt-app-header-height) + var(--kt-app-toolbar-height, 0px));
     }

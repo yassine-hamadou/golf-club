@@ -51,10 +51,9 @@ const DefaultTitle: FC = () => {
                       {item.title}
                     </Link>
                   )}
-{item.isSeparator && item.isActive ? (
+                  {item.isSeparator && item.isActive ? (
                     <span className=''></span>
-  )
-                  : (
+                  ) : (
                     <span className=''>/</span>
                   )}
                 </li>

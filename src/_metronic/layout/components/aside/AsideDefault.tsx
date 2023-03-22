@@ -33,8 +33,10 @@ const AsideDefault: FC = () => {
       ref={asideRef}
     >
       {/* begin::Brand */}
-      <div className='aside-logo flex-column-auto' id='kt_aside_logo'
-            style={{paddingTop: '10px', paddingLeft: '50px'}}
+      <div
+        className='aside-logo flex-column-auto'
+        id='kt_aside_logo'
+        style={{paddingTop: '10px', paddingLeft: '50px'}}
       >
         {/* begin::Logo */}
         <Link to='/dashboard'>
@@ -42,12 +44,12 @@ const AsideDefault: FC = () => {
             alt='Logo'
             style={{
               height: '150px',
-              marginTop: '40px'
-          }}
+              marginTop: '40px',
+            }}
             className='logo'
             src={toAbsoluteUrl('/media/logos/logo.png')}
             height={60}
-       />
+          />
         </Link>
         {/* end::Logo */}
 
@@ -73,10 +75,7 @@ const AsideDefault: FC = () => {
       {/* end::Brand */}
 
       {/* begin::Aside menu */}
-      <div
-          className='aside-menu flex-column-fluid'
-          style={{marginTop: '45px'}}
-      >
+      <div className='aside-menu flex-column-fluid' style={{marginTop: '45px'}}>
         <AsideMenu asideMenuCSSClasses={classes.asideMenu} />
       </div>
       {/*</div>*/}

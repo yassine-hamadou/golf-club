@@ -1,11 +1,11 @@
 .card {
-    /*margin: 30px auto;*/
-    /*width: 300px;*/
-    /*height: 300px;*/
-    border-radius: 20px;
-    box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.22), -2px -2px 10px 3px rgba(0,0,0,0.22);
-    cursor: pointer;
-    transition: 0.2s;
+  /*margin: 30px auto;*/
+  /*width: 300px;*/
+  /*height: 300px;*/
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.22), -2px -2px 10px 3px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 /*.card .card_image {*/
@@ -32,16 +32,14 @@
 /*}*/
 
 .card:hover {
-    transform: scale(0.95, 0.95);
-    box-shadow: 2px 2px 10px 2px rgb(43, 122, 11),
-    -2px -2px 10px 2px rgb(43, 122, 11);
+  transform: scale(0.95, 0.95);
+  box-shadow: 2px 2px 10px 2px rgb(43, 122, 11), -2px -2px 10px 2px rgb(43, 122, 11);
 }
 
 .sheet {
-    border-radius: 20px;
-    box-shadow: 2px 2px 10px 2px rgb(43, 122, 11),
-    -2px -2px 10px 2px rgb(43, 122, 11);
-    transform: scale(0.95, 0.95);
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px 2px rgb(43, 122, 11), -2px -2px 10px 2px rgb(43, 122, 11);
+  transform: scale(0.95, 0.95);
 }
 
 /*.sheet:hover {*/
@@ -49,4 +47,3 @@
 /*    box-shadow: 2px 2px 10px 2px rgb(43, 122, 11),*/
 /*    -2px -2px 10px 2px rgb(43, 122, 11);*/
 /*}*/
-

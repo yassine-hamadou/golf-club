@@ -23,7 +23,7 @@ const DashboardPage: FC = () => (
           className='card-xxl-stretch mb-5 mb-xl-8'
           chartColor='danger'
           chartHeight='200px'
-            barcolor='#278119FF'
+          barcolor='#278119FF'
         />
       </div>
     </div>

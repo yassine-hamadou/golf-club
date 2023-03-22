@@ -1,4 +1,3 @@
-
 //Object to inject in the Calendar
 export const localData = (dataFromApi: any) => {
   return {

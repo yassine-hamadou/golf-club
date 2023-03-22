@@ -1,27 +1,30 @@
 import {PageTitle} from '../../../../../../_metronic/layout/core'
 import {KTCard, KTCardBody, KTSVG} from '../../../../../../_metronic/helpers'
 import {Button, Form, Input, message, Modal, Space, Table} from 'antd'
-import {useMutation, useQuery, useQueryClient} from "react-query";
-import axios from "axios";
-import {API_URL} from "../../../../../urls";
-import {useState} from "react";
-import TextArea from "antd/lib/input/TextArea";
-import {text} from "stream/consumers";
+import {useMutation, useQuery, useQueryClient} from 'react-query'
+import axios from 'axios'
+import {API_URL} from '../../../../../urls'
+import {useState} from 'react'
+import TextArea from 'antd/lib/input/TextArea'
+import {text} from 'stream/consumers'
 
 export const GameTypeTable = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [submitLoading, setSubmitLoading] = useState(false)
 
-  const {data: gameTypes, isLoading} = useQuery('gameTypes', () => axios.get(`${API_URL}/gameTypes`))
-  console.log("Game Types", gameTypes)
+  const {data: gameTypes, isLoading} = useQuery('gameTypes', () =>
+    axios.get(`${API_URL}/gameTypes`)
+  )
+  console.log('Game Types', gameTypes)
   const [form] = Form.useForm()
-
 
   ///////////////////////////////////
   // add modal functions  ///////////
   ///////////////////////////////////
   const queryClient = useQueryClient()
-  const {mutate: addGameType} = useMutation((values: any) => axios.post(`${API_URL}/gameTypes`, values))
+  const {mutate: addGameType} = useMutation((values: any) =>
+    axios.post(`${API_URL}/gameTypes`, values)
+  )
 
   function handleCancel() {
     form.resetFields()
@@ -40,39 +43,41 @@ export const GameTypeTable = () => {
       onError: (error: any) => {
         message.error(error.message)
         setSubmitLoading(false)
-      }
+      },
     })
   }
-
 
   const showModal = () => {
     setIsModalOpen(true)
   }
-///////////////////////////////////
-// End add modal functions  ///////////
+  ///////////////////////////////////
+  // End add modal functions  ///////////
 
-
-///////////////////////////////////
-// Delete modal functions  ///////////
-///////////////////////////////////
- const {mutate: mutateDeleteGameType} = useMutation((text: any) => axios.delete(`${API_URL}/gameTypes/${text.id}`), {
-    onSuccess: () => {
-      queryClient.invalidateQueries('gameTypes')
-      message.success('Game Type deleted successfully')
-    },  onError: (error: any) => {
-      message.error(error.message)
+  ///////////////////////////////////
+  // Delete modal functions  ///////////
+  ///////////////////////////////////
+  const {mutate: mutateDeleteGameType} = useMutation(
+    (text: any) => axios.delete(`${API_URL}/gameTypes/${text.id}`),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries('gameTypes')
+        message.success('Game Type deleted successfully')
+      },
+      onError: (error: any) => {
+        message.error(error.message)
+      },
     }
-  })
+  )
   function deleteGameType(text: any) {
     Modal.confirm({
-        title: 'Are you sure you want to delete this Game Type?',
-        content: 'This action cannot be undone',
-        okText: 'Yes',
-        okType: 'danger',
-        cancelText: 'No',
-        onOk() {
-          mutateDeleteGameType(text)
-        }
+      title: 'Are you sure you want to delete this Game Type?',
+      content: 'This action cannot be undone',
+      okText: 'Yes',
+      okType: 'danger',
+      cancelText: 'No',
+      onOk() {
+        mutateDeleteGameType(text)
+      },
     })
   }
   const columns: any = [
@@ -108,14 +113,20 @@ export const GameTypeTable = () => {
     },
     {
       title: 'Action',
-        dataIndex: 'action',
-        render: (record: any, text: any) => (
-            <Space size='middle'>
-                    <button type='button' className='btn btn-danger me-3' onClick={() => {deleteGameType(text)}}>
-                        Delete
-                    </button>
-            </Space>
-        ),
+      dataIndex: 'action',
+      render: (record: any, text: any) => (
+        <Space size='middle'>
+          <button
+            type='button'
+            className='btn btn-danger me-3'
+            onClick={() => {
+              deleteGameType(text)
+            }}
+          >
+            Delete
+          </button>
+        </Space>
+      ),
     },
   ]
   return (

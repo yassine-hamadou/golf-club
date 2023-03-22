@@ -1,46 +1,44 @@
-import { Outlet, Route, Routes } from "react-router-dom";
-import { PageTitle } from "../../../../../../_metronic/layout/core";
-import { CourseSetup } from "./CourseSetup";
-import { Fees } from "./Fees";
-import { CaddiesTable } from "./caddies/CaddiesTable";
-import AddCourseSetup from "./AddCourseSetup";
-  let accountBreadCrumbs: any = [];
-
-
+import {Outlet, Route, Routes} from 'react-router-dom'
+import {PageTitle} from '../../../../../../_metronic/layout/core'
+import {CourseSetup} from './CourseSetup'
+import {Fees} from './Fees'
+import {CaddiesTable} from './caddies/CaddiesTable'
+import AddCourseSetup from './AddCourseSetup'
+let accountBreadCrumbs: any = []
 
 export const Setup: any = () => {
-
   return (
     <Routes>
+      <Route
+        path='course-setup'
+        element={
+          <>
+            hhgh
+            <Outlet />
+          </>
+        }
+      >
         <Route
-          path="course-setup"
+          path='/'
           element={
-            <>hhgh
-                <Outlet />
+            <>
+              <PageTitle breadcrumbs={accountBreadCrumbs}>Course Setup</PageTitle>
+              <CourseSetup />
             </>
           }
-        >
-          <Route
-            path="/"
-            element={
-              <>
-                <PageTitle breadcrumbs={accountBreadCrumbs}>Course Setup</PageTitle>
-                <CourseSetup />
-              </>
-            }
-          />
-          <Route
-            path="add"
-            element={
-              <>
-                <PageTitle breadcrumbs={accountBreadCrumbs}>Add Course Setup</PageTitle>
-                <AddCourseSetup />
-              </>
-            }
-          />
-        </Route>
+        />
+        <Route
+          path='add'
+          element={
+            <>
+              <PageTitle breadcrumbs={accountBreadCrumbs}>Add Course Setup</PageTitle>
+              <AddCourseSetup />
+            </>
+          }
+        />
+      </Route>
       <Route
-        path="fees"
+        path='fees'
         element={
           <>
             <PageTitle breadcrumbs={accountBreadCrumbs}>Fees Setup</PageTitle>
@@ -49,7 +47,7 @@ export const Setup: any = () => {
         }
       />
       <Route
-        path="caddies"
+        path='caddies'
         element={
           <>
             <PageTitle breadcrumbs={accountBreadCrumbs}>Caddies Setup</PageTitle>
@@ -58,5 +56,5 @@ export const Setup: any = () => {
         }
       />
     </Routes>
-  );
+  )
 }

@@ -20,10 +20,10 @@ import '@syncfusion/ej2-popups/styles/material.css'
 import '@syncfusion/ej2-splitbuttons/styles/material.css'
 import '@syncfusion/ej2-react-schedule/styles/material.css'
 import '@syncfusion/ej2-buttons/styles/material.css'
-import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
+import {TextBoxComponent} from '@syncfusion/ej2-react-inputs'
 import {Alert, message, Space, Spin} from 'antd'
-import axios from "axios";
-import {API_URL} from "../../../../../urls";
+import axios from 'axios'
+import {API_URL} from '../../../../../urls'
 
 /**
  *  Schedule editor custom fields sample
@@ -45,7 +45,7 @@ const Calendar = () => {
   let scheduleObj
   let queryClient = useQueryClient()
 
-    //get game types
+  //get game types
   const {data: gameType} = useQuery('gameType', () => {
     return axios.get(`${API_URL}/gameTypes`).then((res) => res.data)
   })
@@ -55,85 +55,89 @@ const Calendar = () => {
     return axios.get(`${API_URL}/gameSchedules`)
   })
 
-    //post game schedule
-    const postGame = (gameSchedule) => {
-        return axios.post(`${API_URL}/gameSchedules`, gameSchedule)
-    }
+  //post game schedule
+  const postGame = (gameSchedule) => {
+    return axios.post(`${API_URL}/gameSchedules`, gameSchedule)
+  }
 
   //add game schedule
-  const {mutate: mutateGameSchedule} = useMutation('addGame', postGame,{
+  const {mutate: mutateGameSchedule} = useMutation('addGame', postGame, {
     onSuccess: () => {
-        message.success('Game Scheduled').then(r => r)
-        queryClient.invalidateQueries('calendarData').then(r => r)
+      message.success('Game Scheduled').then((r) => r)
+      queryClient.invalidateQueries('calendarData').then((r) => r)
     },
     onError: () => {
-        message.error("Err").then(r => r)
-    }
+      message.error('Err').then((r) => r)
+    },
   })
 
   //delete game schedule
-  const {mutate: deleteGameSchedule} = useMutation((gameSchedule) =>
-      axios.delete(`${API_URL}/gameSchedules/${gameSchedule.id}`), {
+  const {mutate: deleteGameSchedule} = useMutation(
+    (gameSchedule) => axios.delete(`${API_URL}/gameSchedules/${gameSchedule.id}`),
+    {
       onSuccess: () => {
-          message.success('Game Deleted').then(r => r)
-          queryClient.invalidateQueries('calendarData').then(r => r)
+        message.success('Game Deleted').then((r) => r)
+        queryClient.invalidateQueries('calendarData').then((r) => r)
       },
       onError: (error) => {
-          message.error(error.message).then(r => r)
-          message.error("Error deleting the schedule").then(r => r)
-      }
-  })
+        message.error(error.message).then((r) => r)
+        message.error('Error deleting the schedule').then((r) => r)
+      },
+    }
+  )
 
-    //update game schedule
-    const {mutate: updateGameSchedule} = useMutation((gameSchedule) =>
-        axios.put(`${API_URL}/gameSchedules/${gameSchedule.id}`, gameSchedule), {
-        onSuccess: () => {
-            message.success('Game Updated').then(r => r)
-            queryClient.invalidateQueries('calendarData').then(r => r)
-        },
-        onError: (error) => {
-            message.error(error.message).then(r => r)
-        }})
+  //update game schedule
+  const {mutate: updateGameSchedule} = useMutation(
+    (gameSchedule) => axios.put(`${API_URL}/gameSchedules/${gameSchedule.id}`, gameSchedule),
+    {
+      onSuccess: () => {
+        message.success('Game Updated').then((r) => r)
+        queryClient.invalidateQueries('calendarData').then((r) => r)
+      },
+      onError: (error) => {
+        message.error(error.message).then((r) => r)
+      },
+    }
+  )
 
-
-const  onActionBegin = (args) => {
+  const onActionBegin = (args) => {
     console.log('first args', args)
-  // args.cancel = true
-  console.log('args', args)
-  if (args.data !== undefined) {
-    const data = args.data[0] ? args.data[0] : args.data
+    // args.cancel = true
+    console.log('args', args)
+    if (args.data !== undefined) {
+      const data = args.data[0] ? args.data[0] : args.data
 
-    if (args.requestType === 'eventCreate') {
-      const gameSchedule = {
-        subject: data.Subject,
-        startTime: data.StartTime,
-        endTime: data.EndTime,
-        description: data.Description,
-        gameTypeId: data.gameType,
+      if (args.requestType === 'eventCreate') {
+        const gameSchedule = {
+          subject: data.Subject,
+          startTime: data.StartTime,
+          endTime: data.EndTime,
+          description: data.Description,
+          gameTypeId: data.gameType,
+        }
+
+        console.log('gameSchedule', gameSchedule)
+        mutateGameSchedule(gameSchedule)
       }
 
-      console.log('gameSchedule', gameSchedule)
-      mutateGameSchedule(gameSchedule)
-    }
-
-    if (args.requestType === 'eventChange') {
-      console.log('gameSchedule Edit', args)
-      const gameSchedule = {
-        id: data.id,
-        subject: data.Subject,
-        startTime: data.StartTime,
-        endTime: data.EndTime,
-        description: data.Description,
-        gameTypeId: data.gameType,
+      if (args.requestType === 'eventChange') {
+        console.log('gameSchedule Edit', args)
+        const gameSchedule = {
+          id: data.id,
+          subject: data.Subject,
+          startTime: data.StartTime,
+          endTime: data.EndTime,
+          description: data.Description,
+          gameTypeId: data.gameType,
+        }
+        updateGameSchedule(gameSchedule)
       }
-      updateGameSchedule(gameSchedule)
-    }
 
-    if (args.requestType === 'eventRemove') {
-      deleteGameSchedule(data)
+      if (args.requestType === 'eventRemove') {
+        deleteGameSchedule(data)
+      }
     }
   }
-}
   console.log('gameType', gameType)
   let dropDownListObject //to access the dropdownlist component
   function editorTemplate(props) {
@@ -176,13 +180,13 @@ const  onActionBegin = (args) => {
             <td colSpan={4}>
               {/* Render Multiline TextBox */}
               <TextBoxComponent
-                  id='Description'
-                  data-name='Description'
-                  name='Description'
-                  className='e-field e-input'
-                  floatLabelType={'Auto'}
-                  placeholder="Enter a Description"
-                  value={props && props.description ? props.description : ''}
+                id='Description'
+                data-name='Description'
+                name='Description'
+                className='e-field e-input'
+                floatLabelType={'Auto'}
+                placeholder='Enter a Description'
+                value={props && props.description ? props.description : ''}
               />
             </td>
           </tr>
@@ -242,7 +246,7 @@ const  onActionBegin = (args) => {
                 startTime: {name: 'startTime'},
                 endTime: {name: 'endTime'},
                 description: {name: 'description'},
-                gameTypeId: {name: 'gameTypeId'}
+                gameTypeId: {name: 'gameTypeId'},
               },
             }}
             currentView='Month'
@@ -261,10 +265,9 @@ const  onActionBegin = (args) => {
       </div>
     </div>
   ) : (
-      <Space size="middle">
-        <Spin size="large" />
-      </Space>
+    <Space size='middle'>
+      <Spin size='large' />
+    </Space>
   )
 }
 export {Calendar}
-

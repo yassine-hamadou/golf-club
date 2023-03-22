@@ -59,21 +59,22 @@
         var(--kt-primary-inverse),
         var(--kt-primary),
         var(--kt-primary),
-        var(--kt-primary-inverse), #278119
+        var(--kt-primary-inverse),
+        #278119
       );
       @include menu-link-show-state(
         var(--kt-primary-inverse),
         var(--kt-primary),
         var(--kt-primary),
         var(--kt-primary-inverse),
-                      #278119
+        #278119
       );
       @include menu-link-active-state(
         var(--kt-primary-inverse),
         var(--kt-primary),
         var(--kt-primary),
         var(--kt-primary-inverse),
-                      #278119
+        #278119
       );
     }
   }

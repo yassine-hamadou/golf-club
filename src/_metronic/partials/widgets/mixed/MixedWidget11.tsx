@@ -43,11 +43,11 @@ const MixedWidget11: React.FC<Props> = ({className, chartColor, chartHeight}) =>
       <div className='card-body p-0 d-flex justify-content-between flex-column overflow-hidden'>
         {/* begin::Hidden */}
         {/*<div className='d-flex flex-stack flex-wrap flex-grow-1 px-9 pt-9 pb-3'>*/}
-          {/*<div className='me-2'>*/}
-          {/*  <span className='fw-bold text-gray-800 d-block fs-3'>Downtime by fault type</span>*/}
+        {/*<div className='me-2'>*/}
+        {/*  <span className='fw-bold text-gray-800 d-block fs-3'>Downtime by fault type</span>*/}
 
-          {/*  <span className='text-gray-400 fw-semibold'>Oct 8 - Oct 26 2021</span>*/}
-          {/*</div>*/}
+        {/*  <span className='text-gray-400 fw-semibold'>Oct 8 - Oct 26 2021</span>*/}
+        {/*</div>*/}
 
         {/*  <div className={`fw-bold fs-3 text-${chartColor}`}>150</div>*/}
         {/*</div>*/}

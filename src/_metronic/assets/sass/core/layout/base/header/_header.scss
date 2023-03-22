@@ -106,9 +106,13 @@
       );
     }
 
-    body:not([data-kt-app-header-fixed='true'])[data-kt-app-sidebar-fixed='true'][data-kt-app-sidebar-push-header='true']
+    body:not(
+        [data-kt-app-header-fixed='true']
+      )[data-kt-app-sidebar-fixed='true'][data-kt-app-sidebar-push-header='true']
       &,
-    body:not([data-kt-app-header-fixed='true'])[data-kt-app-sidebar-sticky='on'][data-kt-app-sidebar-push-header='true']
+    body:not(
+        [data-kt-app-header-fixed='true']
+      )[data-kt-app-sidebar-sticky='on'][data-kt-app-sidebar-push-header='true']
       & {
       margin-left: calc(
         var(--kt-app-sidebar-width) + var(--kt-app-sidebar-gap-start, 0px) +
@@ -128,9 +132,13 @@
       );
     }
 
-    body:not([data-kt-app-header-fixed='true'])[data-kt-app-sidebar-panel-fixed='true'][data-kt-app-sidebar-panel-push-header='true']
+    body:not(
+        [data-kt-app-header-fixed='true']
+      )[data-kt-app-sidebar-panel-fixed='true'][data-kt-app-sidebar-panel-push-header='true']
       &,
-    body:not([data-kt-app-header-fixed='true'])[data-kt-app-sidebar-panel-sticky='on'][data-kt-app-sidebar-panel-push-header='true']
+    body:not(
+        [data-kt-app-header-fixed='true']
+      )[data-kt-app-sidebar-panel-sticky='on'][data-kt-app-sidebar-panel-push-header='true']
       & {
       margin-left: calc(
         var(--kt-app-sidebar-width) + var(--kt-app-sidebar-gap-start, 0px) +

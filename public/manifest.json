@@ -4,7 +4,7 @@
   "start_url": "/",
   "display": "standalone",
   "icons": [
-      {
+    {
       "src": "./media/logos/logo.png",
       "sizes": "512x512",
       "type": "image/png",
@@ -13,7 +13,7 @@
       "platform": "any",
       "destination": "any",
       "orientation": "portrait"
-      }
+    }
   ],
   "theme_color": "#2E3AA1",
   "orientation": "portrait",

@@ -150,13 +150,17 @@
   // Integration
   .app-sidebar-panel {
     // Header
-    [data-kt-app-sidebar-panel-fixed='true'][data-kt-app-header-fixed='true']:not([data-kt-app-sidebar-panel-push-header='true'])
+    [data-kt-app-sidebar-panel-fixed='true'][data-kt-app-header-fixed='true']:not(
+        [data-kt-app-sidebar-panel-push-header='true']
+      )
       & {
       top: var(--kt-app-header-height);
     }
 
     // Toolbar
-    [data-kt-app-sidebar-panel-fixed='true'][data-kt-app-header-fixed='true'][data-kt-app-toolbar-fixed='true']:not([data-kt-app-sidebar-panel-push-toolbar='true'])
+    [data-kt-app-sidebar-panel-fixed='true'][data-kt-app-header-fixed='true'][data-kt-app-toolbar-fixed='true']:not(
+        [data-kt-app-sidebar-panel-push-toolbar='true']
+      )
       & {
       top: calc(var(--kt-app-header-height) + var(--kt-app-toolbar-height, 0));
     }

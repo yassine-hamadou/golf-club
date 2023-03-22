@@ -1,13 +1,13 @@
-import { KTCard, KTCardBody } from '../../../../../_metronic/helpers'
+import {KTCard, KTCardBody} from '../../../../../_metronic/helpers'
 import {Calendar} from './calendar/Calendar'
-import { PageLink } from "../../../../../_metronic/layout/core";
+import {PageLink} from '../../../../../_metronic/layout/core'
 const accountBreadCrumbs: Array<PageLink> = [
   {
     title: 'Register',
     path: 'register',
     isSeparator: false,
     isActive: false,
-  }
+  },
 ]
 
 const GamePlanning = () => {

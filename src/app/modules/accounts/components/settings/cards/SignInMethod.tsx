@@ -255,11 +255,14 @@ const SignInMethod: React.FC = () => {
                         id='confirmpassword'
                         {...formik2.getFieldProps('passwordConfirmation')}
                       />
-                      {formik2.touched.passwordConfirmation && formik2.errors.passwordConfirmation && (
-                        <div className='fv-plugins-message-container'>
-                          <div className='fv-help-block'>{formik2.errors.passwordConfirmation}</div>
-                        </div>
-                      )}
+                      {formik2.touched.passwordConfirmation &&
+                        formik2.errors.passwordConfirmation && (
+                          <div className='fv-plugins-message-container'>
+                            <div className='fv-help-block'>
+                              {formik2.errors.passwordConfirmation}
+                            </div>
+                          </div>
+                        )}
                     </div>
                   </div>
                 </div>

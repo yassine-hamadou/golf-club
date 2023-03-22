@@ -17,7 +17,7 @@ const BarChart: React.FC<Props> = ({className, chartColor, chartHeight, barcolor
     if (!chartRef.current) {
       return
     }
-    let color = barcolor;
+    let color = barcolor
     const chart = new ApexCharts(chartRef.current, chartOptions(chartColor, chartHeight, color))
     if (chart) {
       chart.render()
@@ -41,7 +41,6 @@ const BarChart: React.FC<Props> = ({className, chartColor, chartHeight, barcolor
     <div className={`card ${className}`}>
       {/* begin::Body */}
       <div className='card-body p-0 d-flex justify-content-between flex-column overflow-hidden'>
-
         <div ref={chartRef} className='mixed-widget-10-chart'></div>
         {/* end::Chart */}
       </div>

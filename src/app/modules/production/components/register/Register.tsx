@@ -4,11 +4,8 @@ import {Link, Route, Routes} from 'react-router-dom'
 import {KTCard, KTCardBody, KTSVG} from '../../../../../_metronic/helpers'
 import Add from './add/Registration'
 import {PageLink, PageTitle} from '../../../../../_metronic/layout/core'
-import {useQuery} from "react-query";
-import { getMembers } from '../Requests'
-
-
-
+import {useQuery} from 'react-query'
+import {getMembers} from '../Requests'
 
 const Register = () => {
   // const [gridData, setGridData] = useState([])
@@ -17,10 +14,10 @@ const Register = () => {
   const {data: members} = useQuery('membersQuery', () => getMembers())
   // const [searchText, setSearchText] = useState('')
   // let [filteredData] = useState([])
-console.log("Members", members)
+  console.log('Members', members)
   const onMenuClick: MenuProps['onClick'] = (e) => {
-    console.log('click', e);
-  };
+    console.log('click', e)
+  }
 
   const items = [
     {
@@ -35,7 +32,7 @@ console.log("Members", members)
       key: '3',
       label: 'Suspend',
     },
-  ];
+  ]
   const columns: any = [
     {
       title: 'Picture',
@@ -52,7 +49,7 @@ console.log("Members", members)
         }
         return 0
       },
-      dataIndex: 'code'
+      dataIndex: 'code',
     },
     {
       title: 'First Name',
@@ -65,47 +62,47 @@ console.log("Members", members)
         }
         return 0
       },
-      dataIndex: 'fname'
+      dataIndex: 'fname',
     },
     {
       title: 'Last Name',
       sorter: (a: any, b: any) => a.downTime - b.downTime,
-      dataIndex: 'lname'
+      dataIndex: 'lname',
     },
     {
       title: 'Phone Number',
-      dataIndex: 'phone'
+      dataIndex: 'phone',
     },
     {
       title: 'Email',
-      dataIndex: 'email'
+      dataIndex: 'email',
     },
     {
       title: 'Gender',
-      dataIndex: 'gender'
+      dataIndex: 'gender',
     },
     {
       title: 'DOB',
-      dataIndex: 'dateOfBirth'
+      dataIndex: 'dateOfBirth',
     },
     {
       title: 'Player Handicap',
-        dataIndex: 'playerHandicap'
+      dataIndex: 'playerHandicap',
     },
     {
       title: 'GGA ID#',
-      dataIndex: 'ggaid'
+      dataIndex: 'ggaid',
     },
     {
       title: 'Status',
-        dataIndex: 'status'
+      dataIndex: 'status',
     },
     {
       title: 'Action',
       render: () => (
         <>
           {/*reset button style*/}
-          <Dropdown.Button menu={{ items, onClick: onMenuClick }}>Actions</Dropdown.Button>
+          <Dropdown.Button menu={{items, onClick: onMenuClick}}>Actions</Dropdown.Button>
           {/*<Button className='bg-success me-3'>*/}
           {/*  Activate*/}
           {/*  </Button>*/}
@@ -174,5 +171,3 @@ console.log("Members", members)
 }
 
 export {Register}
-
-
