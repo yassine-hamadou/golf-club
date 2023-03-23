@@ -9,7 +9,7 @@ import { Shop } from './components/shop/Shop';
 import { TeeSheet } from './components/teeSheet/teeSheet';
 import { AccountPage } from './components/teeSheet/setup/AccountPage';
 import {History} from "./components/teeSheet/setup/History";
-import ScoreBoard from "./components/scoreBoard/ScoreBoard";
+import ScoreBoard from './components/ScoreBoard/ScoreBoard';
 const accountBreadCrumbs: Array<PageLink> = []
 
 const ProductionPage: React.FC = () => {
