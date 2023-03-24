@@ -4,14 +4,14 @@ import {Link, Route, Routes} from 'react-router-dom'
 import {KTCard, KTCardBody, KTSVG} from '../../../../../_metronic/helpers'
 import Add from './add/Registration'
 import {PageLink, PageTitle} from '../../../../../_metronic/layout/core'
-import {useQuery} from 'react-query'
+import {Query, QueryClient, useQuery, useQueryClient} from 'react-query'
 import {getMembers} from '../Requests'
+import {id} from "date-fns/locale";
 
 const Register = () => {
   // const [gridData, setGridData] = useState([])
-  const [loading, setLoading] = useState(false)
 
-  const {data: members} = useQuery('membersQuery', () => getMembers())
+  const {data: members, isLoading} = useQuery('membersQuery', () => getMembers())
   // const [searchText, setSearchText] = useState('')
   // let [filteredData] = useState([])
   console.log('Members', members)
@@ -32,11 +32,24 @@ const Register = () => {
       key: '3',
       label: 'Suspend',
     },
+    {
+        key: '4',
+        label: 'Edit',
+    }
   ]
   const columns: any = [
     {
+        title: 'Entry ID',
+        dataIndex: 'id',
+        //sort default order of data by dataindex id in ascending order
+        sorter: (a: any, b: any) => a.id - b.id,
+        defaultSortOrder: 'descend',
+    },
+    {
       title: 'Picture',
       dataIndex: 'picture',
+      //sort default order of data by dataindex id
+        sorter: (a: any, b: any) => a.id - b.id,
     },
     {
       title: 'Membership ID',
@@ -117,6 +130,26 @@ const Register = () => {
     },
   ]
 
+  const queryClient = useQueryClient()
+    const globalSearch = (value: any) => {
+    const query = queryClient.getQueryData<Query<any>>('membersQuery')
+      //@ts-ignore
+      if (query?.data) {
+        //@ts-ignore
+        const filteredData = query?.data.filter((item: any) => {
+          return item.fname.toLowerCase().includes(value.toLowerCase())
+        })
+        console.log('filteredData', filteredData)
+        queryClient.setQueryData('membersQuery', {data: filteredData})
+      }
+    }
+    const handleInputChange = (e: any) => {
+      globalSearch(e.target.value)
+      if (e.target.value === '') {
+        queryClient.invalidateQueries('membersQuery')
+      }
+    }
+
   return (
     <Routes>
       {/*index*/}
@@ -131,10 +164,9 @@ const Register = () => {
                   <Space style={{marginBottom: 16}}>
                     <Input
                       placeholder='Enter Search Text'
-                      // onChange={handleInputChange}
+                      onChange={handleInputChange}
                       type='text'
                       allowClear
-                      // value={searchText}
                     />
                     <Button type='primary'>Search</Button>
                   </Space>
@@ -150,7 +182,7 @@ const Register = () => {
                     </Link>
                   </Space>
                 </div>
-                <Table columns={columns} bordered loading={loading} dataSource={members?.data} />
+                <Table rowKey={"id"} columns={columns} bordered loading={isLoading} dataSource={members?.data}/>
               </KTCardBody>
             </KTCard>
           </>

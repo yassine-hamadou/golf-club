@@ -6,7 +6,6 @@ import {GamePlanning} from './components/gamePlanning/gameSchedule'
 import {Reports} from './components/reports/MembersReport'
 import {Shop} from './components/shop/Shop'
 import {TeeSheet} from './components/teeSheet/teeSheet'
-import {CourseSetup} from './components/teeSheet/setup/CourseSetup'
 import AddCourseSetup from './components/teeSheet/setup/AddCourseSetup'
 import {Fees} from './components/teeSheet/setup/Fees'
 import {CaddiesTable} from './components/teeSheet/setup/caddies/CaddiesTable'
@@ -14,7 +13,8 @@ import AddCaddy from './components/teeSheet/setup/caddies/AddCaddy'
 import {AddFeeSetup} from './components/teeSheet/setup/AddFeeSetup'
 import {GameTypeTable} from './components/teeSheet/setup/GameTypeTable'
 import {AddGameTypeSetup} from './components/teeSheet/setup/AddGameTypeSetup'
-import ScoreBoard from "./components/scoreBoard/ScoreBoard";
+import {ScoreBoard} from './components/scoreBoard/ScoreBoard'
+import { Course } from './components/teeSheet/setup/CourseSetup'
 const accountBreadCrumbs: Array<PageLink> = []
 
 const ProductionPage: React.FC = () => {
@@ -90,7 +90,7 @@ const ProductionPage: React.FC = () => {
             element={
               <>
                 <PageTitle breadcrumbs={accountBreadCrumbs}>Course Setup</PageTitle>
-                <CourseSetup />
+                <Course />
               </>
             }
           />
