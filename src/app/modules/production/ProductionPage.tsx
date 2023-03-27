@@ -14,7 +14,7 @@ import {AddFeeSetup} from './components/teeSheet/setup/AddFeeSetup'
 import {GameTypeTable} from './components/teeSheet/setup/GameTypeTable'
 import {AddGameTypeSetup} from './components/teeSheet/setup/AddGameTypeSetup'
 import {ScoreBoard} from './components/scoreBoard/ScoreBoard'
-import { Course } from './components/teeSheet/setup/CourseSetup'
+import {Course, CourseList} from './components/teeSheet/setup/CourseSetup'
 const accountBreadCrumbs: Array<PageLink> = []
 
 const ProductionPage: React.FC = () => {
@@ -103,6 +103,10 @@ const ProductionPage: React.FC = () => {
               </>
             }
           />
+            <Route
+                path='view/:id'
+              element={<CourseList />}
+            />
         </Route>
         <Route
           path='fees/*'
